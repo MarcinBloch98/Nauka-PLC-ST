@@ -1,21 +1,26 @@
-# Nauka-PLC-ST - Język Structured Text (ST/SCL)
+# Nauka Programowania PLC w języku ST (IEC 61131-3)
 
-Repozytorium zawiera projekty i ćwiczenia realizowane w ramach nauki programowania sterowników PLC. Skupiam się na implementacji algorytmów w języku tekstowym, zgodnie z normą IEC 61131-3.
+Repozytorium zawiera zbiór moich programów i algorytmów tworzonych podczas nauki programowania sterowników PLC w języku tekstowym Structured Text (ST). Projekty realizowane są w oparciu o standardy przemysłowe.
 
-## Projekt: Sterowanie silnikiem z symulacją obiektu
-Pierwszy projekt realizujący podstawową logikę sterowania napędem (np. bramą lub pompą) z wykorzystaniem podtrzymania i czasowej symulacji sygnałów zwrotnych.
+---
 
-### Funkcjonalność:
-* **Logika Start/Stop**: Klasyczne sterowanie z priorytetem dla sygnału zatrzymania.
-* **Symulacja krańcówki**: Wykorzystanie bloku `TON` do emulacji dojechania do celu po 5 sekundach pracy.
-* **Bezpieczeństwo**: Blokada załączenia przy aktywnej krańcówce lub wciśniętym przycisku Stop.
+## 1. Sterowanie Napędem (Motor Control)
+Podstawowy moduł sterowania silnikiem z podtrzymaniem programowym.
+* **Funkcjonalność:** Start/Stop silnika.
+* **Kluczowe rozwiązania:** Zastosowanie priorytetu wyłączenia (bezpieczniejsza logika sterowania).
 
-### Standardy kodowania:
-U kodzie stosuję notację techniczną ułatwiającą diagnostykę:
-* `x` - zmienne binarne (BOOL), np. `xSilnik`.
-* `fb` - instancje bloków funkcyjnych, np. `fbTimer`.
+---
 
-**Projekt: Emergency Stop**
-Implementacja funkcji bezpieczeństwa (E-Stop) zgodnie z logiką NC (Normally Closed).
-Zastosowanie mechanizmu Reset Interlock – blokada samoczynnego rozruchu maszyny po zwolnieniu przycisku.
-Zgodność ze standardem IEC 61131-3.
+## 2. Bezpieczeństwo: Emergency Stop (E-Stop)
+Implementacja funkcji bezpieczeństwa chroniącej operatora i maszynę.
+* **Logika NC (Normally Closed):** Wykorzystanie standardu zapewniającego zadziałanie zabezpieczenia w przypadku przerwania obwodu (np. zerwanie przewodu).
+* **Reset Interlock:** Zabezpieczenie przed samoczynnym rozruchem – wymagane świadome potwierdzenie przyciskiem Reset po odblokowaniu grzyba bezpieczeństwa.
+* **Zgodność:** Algorytm zgodny z wymogami normy IEC 61131-3.
+
+---
+
+## 3. Licznik Produkcji (Production Counter)
+Moduł monitorowania wydajności linii i zliczania gotowych detali.
+* **Detekcja zbocza (R_TRIG):** Autorska implementacja wykrywania zbocza narastającego, co gwarantuje precyzyjne zliczanie (jeden detal = jeden impuls).
+* **Kontrola limitu:** Funkcja porównywania wartości aktualnej z zadaną (np. sygnał "Karton pełen").
+* **Typy danych:** Praca na zmiennych całkowitych (INT) oraz flagach statusowych (BOOL).
