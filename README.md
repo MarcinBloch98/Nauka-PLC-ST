@@ -32,3 +32,9 @@ Zaawansowany algorytm zarządzający logiką maszyny w oparciu o stany procesowe
 * **Struktura CASE:** Podział na stany IDLE, RUNNING i EMERGENCY
 * **Bezpieczeństwo:** Implementacja trybu awaryjnego (99) z blokadą ponownego rozruchu
 * **Architektura:** Skalowalna numeracja stanów (co 10) umożliwiająca łatwą rozbudowę systemu
+
+## 5. Sterownik Silnika z Diagnostyką (Feedback Monitoring)
+Zaawansowany blok funkcyjny (FB) zarządzający pracą napędu z kontrolą czasu odpowiedzi.
+* **Diagnostyka Feedback:** Wykorzystanie timera TON do weryfikacji sytnału potwierdzenia działania układu w czasie 2s.
+* **Obsługa błędów zewnętrznych:** Integracja sygnału z wyzwalacza termicznego (ErrorIn) blokująca pracę urządzenia w celu ochrony przed przegrzaniem.
+* **Gotowość HMI:** Implementacja stanu układu w postaci statusów tekstowych (STRING) przygotowanych pod wizualizację procesową.
