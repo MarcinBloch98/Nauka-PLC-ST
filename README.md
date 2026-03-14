@@ -38,3 +38,8 @@ Zaawansowany blok funkcyjny (FB) zarządzający pracą napędu z kontrolą czasu
 * **Diagnostyka Feedback:** Wykorzystanie timera TON do weryfikacji sytnału potwierdzenia działania układu w czasie 2s.
 * **Obsługa błędów zewnętrznych:** Integracja sygnału z wyzwalacza termicznego (ErrorIn) blokująca pracę urządzenia w celu ochrony przed przegrzaniem.
 * **Gotowość HMI:** Implementacja stanu układu w postaci statusów tekstowych (STRING) przygotowanych pod wizualizację procesową.
+
+## 6. Skalowanie i Normalizacja Sygnałów Analogowych
+* Implementacja skalowania liniowego na jednostki fizyczne.
+* Konwersja typów danych INT do REAL dla zachowania precyzji.
+* Dodanie diagnostyki błędów i kontroli poprawności sygnału.
