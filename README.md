@@ -1,45 +1,32 @@
-# Nauka Programowania PLC w języku ST (IEC 61131-3)
+**Nauka PLC w Structured Text (ST)**
+Moje autorskie projekty i algorytmy pisane podczas nauki programowania sterowników w języku ST. Skupiam się na czystym kodzie i standardach, które faktycznie spotyka się na obiektach.
 
-Repozytorium zawiera zbiór moich programów i algorytmów tworzonych podczas nauki programowania sterowników PLC w języku tekstowym Structured Text (ST). Projekty realizowane są w oparciu o standardy przemysłowe
+**1. Prosty Start/Stop silnika**
+Podstawa sterowania napędem z podtrzymaniem.
+Zrobiłem to na priorytecie wyłączenia – bezpieczeństwo przede wszystkim (Stop zawsze ma pierwszeństwo nad Startem).
 
----
+**2. Obsługa Grzyba (E-Stop)**
+Logika bezpieczeństwa dla maszyny.
+**Logika NC:** Program reaguje na zanik napięcia (np. zerwany kabel), co jest standardem w przemyśle
+**Reset:** Dodałem blokadę, żeby maszyna nie ruszyła sama po odblokowaniu przycisku – operator musi świadomie kliknąć Reset.
 
-## 1. Sterowanie Napędem (Motor Control)
-Podstawowy moduł sterowania silnikiem z podtrzymaniem programowym
-* **Funkcjonalność:** Start/Stop silnika
-* **Kluczowe rozwiązania:** Zastosowanie priorytetu wyłączenia (bezpieczniejsza logika sterowania)
+**3. Licznik detali na linii**
+Zliczanie produktów przejeżdżających przez czujnik.
+Wykorzystałem wykrywanie zbocza (R_TRIG), żeby jeden detal nie był liczony kilka razy.
+Jest też porównanie z limitem – system daje sygnał, gdy np. karton jest pełny.
 
----
+**4. Maszyna Stanu (Sekwencja taśmociągu)**
+Zarządzanie pracą maszyny przez instrukcję CASE.
+Podzieliłem to na stany (IDLE, RUNNING, ERROR).
+Użyłem numeracji co 10 (10, 20, 30...), żeby w razie czego łatwo było dodać tam dodatkowy krok bez zmieniania całego programu.
 
-## 2. Bezpieczeństwo: Emergency Stop (E-Stop)
-Implementacja funkcji bezpieczeństwa chroniącej operatora i maszynę
-* **Logika NC (Normally Closed):** Wykorzystanie standardu zapewniającego zadziałanie zabezpieczenia w przypadku przerwania obwodu (np. zerwanie przewodu)
-* **Reset Interlock:** Zabezpieczenie przed samoczynnym rozruchem – wymagane świadome potwierdzenie przyciskiem Reset po odblokowaniu grzyba bezpieczeństwa
-* **Zgodność:** Algorytm zgodny z wymogami normy IEC 61131-3
+**5. Silnik z kontrolą odpowiedzi (Feedback)**
+Bardziej rozbudowany blok sterowania napędem.
+**Diagnostyka:** Program czeka 2 sekundy na potwierdzenie ze stycznika. Jak stycznik nie "odpali", wywala błąd.
+**Zabezpieczenie termiczne:** Podpiąłem wejście pod termik, żeby chronić silnik przed spaleniem.
+**HMI:** Dodałem statusy tekstowe, żeby na panelu operator widział jasno, co się dzieje (np. "Praca" albo "Błąd termika").
 
----
-
-## 3. Licznik Produkcji (Production Counter)
-Moduł monitorowania wydajności linii i zliczania gotowych detali
-* **Detekcja zbocza (R_TRIG):** Autorska implementacja wykrywania zbocza narastającego, co gwarantuje precyzyjne zliczanie (jeden detal = jeden impuls)
-* **Kontrola limitu:** Funkcja porównywania wartości aktualnej z zadaną (np. sygnał "Karton pełen")
-* **Typy danych:** Praca na zmiennych całkowitych (INT) oraz flagach statusowych (BOOL)
-
----
-
-## 4. Sterowanie sekwencyjne taśmociągiem (MAszyna stanu - State Machine)
-Zaawansowany algorytm zarządzający logiką maszyny w oparciu o stany procesowe
-* **Struktura CASE:** Podział na stany IDLE, RUNNING i EMERGENCY
-* **Bezpieczeństwo:** Implementacja trybu awaryjnego (99) z blokadą ponownego rozruchu
-* **Architektura:** Skalowalna numeracja stanów (co 10) umożliwiająca łatwą rozbudowę systemu
-
-## 5. Sterownik Silnika z Diagnostyką (Feedback Monitoring)
-Zaawansowany blok funkcyjny (FB) zarządzający pracą napędu z kontrolą czasu odpowiedzi.
-* **Diagnostyka Feedback:** Wykorzystanie timera TON do weryfikacji sytnału potwierdzenia działania układu w czasie 2s.
-* **Obsługa błędów zewnętrznych:** Integracja sygnału z wyzwalacza termicznego (ErrorIn) blokująca pracę urządzenia w celu ochrony przed przegrzaniem.
-* **Gotowość HMI:** Implementacja stanu układu w postaci statusów tekstowych (STRING) przygotowanych pod wizualizację procesową.
-
-## 6. Skalowanie i Normalizacja Sygnałów Analogowych
-* Implementacja skalowania liniowego na jednostki fizyczne.
-* Konwersja typów danych INT do REAL dla zachowania precyzji.
-* Dodanie diagnostyki błędów i kontroli poprawności sygnału.
+**6. Skalowanie czujników (Analogi)**
+Przeliczanie surowych danych z karty wejściowej na normalne jednostki.
+Zamieniam INT na REAL, żeby wynik (np. bary czy stopnie) był dokładny.
+**Diagnostyka:** Program pilnuje, czy sygnał nie wychodzi poza zakres (np. przy pękniętym kablu 4-20mA).
