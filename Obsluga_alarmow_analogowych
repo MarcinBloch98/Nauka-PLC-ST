@@ -1,0 +1,26 @@
+FUNCTION_BLOCK FB_Alarm_Analog
+VAR_INPUT
+    Wartosc_Skalowana : REAL;    // Wartosc przeliczona
+    Prog_Wysoki       : REAL;    // Prog alarmu
+    Prog_Krytyczny    : REAL;    // Prog krytycznej wartosci w ukladzie
+    Histereza         : REAL := 1.0; // Zapobiega przeciwko tzw drganiu stykow
+END_VAR
+
+VAR_OUTPUT
+    Ostrzezenie : BOOL; // Informacja o przekroczeniu progu wysokiego
+    Alarm       : BOOL; // Informacja o przekroczeniu progu krytycznego
+END_VAR
+
+// 1. Sprawdzenie progu krytycznego - natychmiastowe zatrzymanie, gdy zostanie przekroczona wartosc krytyczna
+IF Wartosc_Skalowana >= Prog_Krytyczny THEN
+    Alarm := TRUE;  // Informacja o przekroczeniu progu krytycznego
+ELSIF Wartosc_Skalowana <= (Prog_Krytyczny - Histereza) THEN  // Wylacz alarm po powrocie do bezpiecznej wartosci
+    Alarm := FALSE;  // Wylacz alarm
+END_IF;
+
+// 2. Ostrzezenie - tylko sygnalizacja
+IF Wartosc_Skalowana >= Prog_Wysoki THEN
+    Ostrzezenie := TRUE;  // Sygnalizacja przekroczenia normy np. lampka
+ELSIF Wartosc_Skalowana <= (Prog_Wysoki - Histereza) THEN // Wylacz jesli spadnie ponizej tego progu
+    Ostrzezenie := FALSE;
+END_IF;
