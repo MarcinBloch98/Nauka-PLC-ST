@@ -1,4 +1,5 @@
-FUNCTION_BLOCK FB_Alarm_Analog
+FUNCTION_BLOCK Obsluga_alarmow_analogowych
+
 VAR_INPUT
     Wartosc_Skalowana : REAL;    // Wartosc przeliczona
     Prog_Wysoki       : REAL;    // Prog alarmu
