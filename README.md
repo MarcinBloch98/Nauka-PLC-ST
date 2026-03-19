@@ -31,8 +31,14 @@ Monitorowanie progów bezpieczeństwa dla wartości analogowych
 ### 6. Licznik Produkcji – Production_counter.st
 Zliczanie detali z wykorzystaniem detekcji zbocza `R_TRIG`
 
-### 7. Monitorowanie ruchu – Kontrola_ruchu_tasmy.st
+### 7. Licznik godzin pracy.st – Kontrola_ruchu_tasmy.st
 Nadzór fizycznej pracy silnika z wykorzystaniem czujnika obrotów.
 * **Oczekiwanie na ruch silnika:** Czas ochronny (3s) pozwalający maszynie rozpędzić się
 * **Nadzór czasu:** Kontrola czasu między impulsami ustawiona na 800ms
 * **Blokada ruchu:** Automatyczne zatrzymanie napędu w przypadku wykrycia blokady mechanicznej
+
+**8. Licznik czasu pracy – Licznik_Godzin_Pracy.st**
+Monitorowanie zużycia napędu
+**Pomiar czasu:** Zliczanie czasu pracy tylko w momencie faktycznego załączenia silnika
+**Informowanie poprzez HMI:** Automatyczne pokazywanie jednostek na godziny (REAL) Poprzez wizualizacje
+**Harmonogram serwisu:** System kontroli czasu potrzebnego do przegladu do przepracowanych 500h
