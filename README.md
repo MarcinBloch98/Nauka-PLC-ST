@@ -1,44 +1,51 @@
-# Nauka PLC w Structured Text (ST)
-Moje autorskie projekty i algorytmy pisane podczas nauki programowania sterowników w języku ST. Skupiam się na czystym kodzie i standardach przemysłowych
+# Portfolio Automatyka – Projekty PLC (Structured Text)
+
+Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
 ---
 
 ### 1. Obsługa Grzyba – Emergency_Stop.st
-Logika bezpieczeństwa dla maszyny
+System bezpieczeństwa dla maszyny
 * **Logika NC:** Reakcja na zanik napięcia (bezpieczeństwo w przypadku uszkodzenia przewodu)
 * **Reset:** Blokada restartu – wymagane świadome potwierdzenie operatora po ustąpieniu awarii
 
 ### 2. Maszyna Stanu – Sterowanie_sekwencyjne_tasmociagu.st
-Zarządzanie sekwencją pracy przez instrukcję `CASE`
-* **Skalowalność:** Numeracja stanów co 10 (10, 20, 30...) pozwala na łatwe dodawanie kroków pośrednich
+Sekwencja pracy z użyciem instrukcji `CASE`
+* **Skalowalność:** Numeracja stanów co 10 pozwala na łatwe dodawanie kroków pośrednich
 * **Stany:** Obsługa trybów IDLE, RUNNING oraz ERROR
 
 ### 3. Diagnostyka Silnika – Motor_Control_Diagnostic.st
-Zaawansowane sterowanie napędem z kontrolą odpowiedzi
+Sterowanie napędem z monitoringiem odpowiedzi
 * **Feedback:** Czasowa weryfikacja odpowiedzi ze stycznika (2s)
 * **Zabezpieczenie:** Integracja z wyłącznikiem silnikowym (termikiem)
-* **Statusy HMI:** Przekazywanie jasnych komunikatów tekstowych o błędach
+* **Statusy HMI:** Przekazywanie komunikatów tekstowych o błędach
 
 ### 4. Skalowanie Analogowe – Skalowanie_Analogowe.st
-Przeliczanie surowych danych wejściowych (INT) na wartości fizyczne (REAL)
-* **Diagnostyka:** Detekcja błędów pomiarowych (np. wykrywanie przerwania pętli 4-20mA poza zakresem)
+Przeliczanie danych wejściowych (INT) na wartości fizyczne (REAL)
+* **Diagnostyka:** Detekcja błędów pomiarowych
 
 ### 5. Alarmy z Histerezą – Obsluga_alarmow_analogowych.st
 Monitorowanie progów bezpieczeństwa dla wartości analogowych
-* **Histereza:** Zapobieganie fluktuacjom sygnału i fałszywym alarmom ("drganie styków")
+* **Histereza:** Zapobieganie fluktuacjom sygnału i fałszywym alarmom
 * **Poziomy:** Rozdzielenie ostrzeżenia od alarmu krytycznego
 
 ### 6. Licznik Produkcji – Production_counter.st
-Zliczanie detali z wykorzystaniem detekcji zbocza `R_TRIG`
+Zliczanie detali z użyciem detekcji zbocza narastającego `R_TRIG`
 
-### 7. Licznik godzin pracy.st – Kontrola_ruchu_tasmy.st
-Nadzór fizycznej pracy silnika z wykorzystaniem czujnika obrotów.
-* **Oczekiwanie na ruch silnika:** Czas ochronny (3s) pozwalający maszynie rozpędzić się
-* **Nadzór czasu:** Kontrola czasu między impulsami ustawiona na 800ms
+### 7. Monitorowanie ruchu – Kontrola_ruchu_tasmy.st
+Nadzór faktycznej pracy silnika z wykorzystaniem czujnika obrotów
+* **Oczekiwanie na rozruch:** Czas ochronny (3s) pozwalający maszynie na wejście w obroty
+* **Nadzór czasu:** Kontrola czasu między impulsami (800ms)
 * **Blokada ruchu:** Automatyczne zatrzymanie napędu w przypadku wykrycia blokady mechanicznej
 
-**8. Licznik czasu pracy – Licznik_Godzin_Pracy.st**
-Monitorowanie zużycia napędu
-**Pomiar czasu:** Zliczanie czasu pracy tylko w momencie faktycznego załączenia silnika
-**Informowanie poprzez HMI:** Automatyczne pokazywanie jednostek na godziny (REAL) Poprzez wizualizacje
-**Harmonogram serwisu:** System kontroli czasu potrzebnego do przegladu do przepracowanych 500h
+### 8. Licznik czasu pracy – Licznik_Godzin_Pracy.st
+System monitorowania zużycia eksploatacyjnego napędu
+* **Pomiar czasu:** Zliczanie sekund pracy tylko podczas aktywnego sygnału silnika
+* **Diagnostyka HMI:** Automatyczne przeliczanie jednostek na motogodziny
+* **Harmonogram serwisu:** System powiadomień o przeglądzie technicznym po przekroczeniu 500h
+
+### 9. Rozruch Kaskadowy – Sekwencyjne_wlaczanie_silnikow.st
+Sekwencyjnye uruchamianiem napędów
+* **Pomiar zwłoki:** Użycie timerów TON do odliczania przerw (5s) między startem sekcji
+* **Logika powiązań:** Zabezpieczenie przed startem dalszych silników w przypadku awarii poprzednika
+* **Bezpieczeństwo:** Użycie podtrzymania programowego z priorytetem dla sygnału STOP (NC)
