@@ -49,3 +49,9 @@ Sekwencyjnye uruchamianiem napędów
 * **Pomiar zwłoki:** Użycie timerów TON do odliczania przerw (5s) między startem sekcji
 * **Logika powiązań:** Zabezpieczenie przed startem dalszych silników w przypadku awarii poprzednika
 * **Bezpieczeństwo:** Użycie podtrzymania programowego z priorytetem dla sygnału STOP (NC)
+
+### 10. Regulacja Poziomu – Regulacja_poziomu_w_zbiorniku_z_histereza.st
+Algorytm napełniania zbiornika w zakresie 20-80%
+* **Histereza:** Blokada przed zbyt częstym uruchomieniom i wyłączeniom pompy
+* **Ochrona sprzętu:** Likwidacja zjawiska "szarpania" stycznikiem przy niewielkich wahaniach poziomu cieczy
+* **Diagnostyka:** Wykrycie wartości poza zakresem czujnika (-5% do 105%) i automatyczne przejście w stan zabezpieczający układ
