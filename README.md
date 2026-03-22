@@ -55,3 +55,10 @@ Algorytm napełniania zbiornika w zakresie 20-80%
 * **Histereza:** Blokada przed zbyt częstym uruchomieniom i wyłączeniom pompy
 * **Ochrona sprzętu:** Likwidacja zjawiska "szarpania" stycznikiem przy niewielkich wahaniach poziomu cieczy
 * **Diagnostyka:** Wykrycie wartości poza zakresem czujnika (-5% do 105%) i automatyczne przejście w stan zabezpieczający układ
+
+### 11. Automatyczny Cykl Nawrotny – Automatyczny_cykl_nawrotny.st
+Autoamtyczne sterowanie zmianą kierunku pracy napędu (Lewo/Prawo)
+* **Logika sekwencyjna:** Automatyczne przełączanie kierunków po upływie czasu pracy (5s)
+* **Bezpieczeństwo (Interlock):** Pauza (3s) przed każdą zmianą kierunku
+* **Pamięć stanu:** Wykorzystanie flagi do zapamiętywania fazy cyklu i przejścia w kolejny krok
+* **Priorytet Stop:** Natychmiastowe zatrzymanie automatu po naciśnięciu przycisku STOP (NC)
