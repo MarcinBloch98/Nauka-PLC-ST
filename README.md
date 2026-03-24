@@ -62,3 +62,10 @@ Autoamtyczne sterowanie zmianą kierunku pracy napędu (Lewo/Prawo)
 * **Bezpieczeństwo (Interlock):** Pauza (3s) przed każdą zmianą kierunku
 * **Pamięć stanu:** Wykorzystanie flagi do zapamiętywania fazy cyklu i przejścia w kolejny krok
 * **Priorytet Stop:** Natychmiastowe zatrzymanie automatu po naciśnięciu przycisku STOP (NC)
+
+### 12. Automatyczny Mieszalnik – Automatyczny_mieszalnik.st
+Algorytm sterowania sekwencyjnego z przygotowaniem mieszanki dwóch składników.
+* **Maszyna Stanów (CASE):** Wykorzystanie struktury `CASE...OF` do zarządzania etapami procesu
+* **Obsługa Sygnałów Analogowych:** Dozowanie składników A (40%) i B (80%) na podstawie odczytu z analogowego czujnika poziomu (REAL)
+* **Automatyzacja Czasowa:** Zastosowanie timera TON do odliczania 10 sekund cyklu mieszania
+* **Logika Bezpieczeństwa:** Wdrożenie nadrzędnego sygnału Stop Awaryjny (E-Stop), który natychmiast przerywa sekwencję i resetuje układ do stanu bezpiecznego.
