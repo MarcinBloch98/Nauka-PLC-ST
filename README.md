@@ -68,10 +68,16 @@ Algorytm sterowania sekwencyjnego z przygotowaniem mieszanki dwóch składników
 * **Maszyna Stanów (CASE):** Wykorzystanie struktury `CASE...OF` do zarządzania etapami procesu
 * **Obsługa Sygnałów Analogowych:** Dozowanie składników A (40%) i B (80%) na podstawie odczytu z analogowego czujnika poziomu (REAL)
 * **Automatyzacja Czasowa:** Zastosowanie timera TON do odliczania 10 sekund cyklu mieszania
-* **Logika Bezpieczeństwa:** Wdrożenie nadrzędnego sygnału Stop Awaryjny (E-Stop), który natychmiast przerywa sekwencję i resetuje układ do stanu bezpiecznego.
+* **Logika Bezpieczeństwa:** Wdrożenie nadrzędnego sygnału Stop Awaryjny (E-Stop), który natychmiast przerywa sekwencję i resetuje układ do stanu bezpiecznego
 
 ### 13. Skalowanie Analogowe (PT100) – Skalowanie_analogowe_PT100.st
 Program realizujący przeliczanie  danych z wejścia analogowego sterownika na °C
-* **Konwersja:** Wykorzystanie funkcji `INT_TO_REAL` do obliczeń na liczbach zmiennoprzecinkowych.
-* **Matematyka Procesowa:** Wykorzystanie wzoru na liniowe skalowanie sygnału w zakresie -50.0 do 150.0°C.
-* **Diagnostyka:** Automatyczny alarm przekroczenia temperatury krytycznej (>100°C).
+* **Konwersja:** Wykorzystanie funkcji `INT_TO_REAL` do obliczeń na liczbach zmiennoprzecinkowych
+* **Matematyka Procesowa:** Wykorzystanie wzoru na liniowe skalowanie sygnału w zakresie -50.0 do 150.0°C
+* **Diagnostyka:** Automatyczny alarm przekroczenia temperatury krytycznej (>100°C)
+
+### 14. Kaskada Pomp z Autozamianą – Sterowanie_kaskadowe_pomp.st
+Algorytm zarządzania pracą dwóch pomp w systemie przepompowni
+* **Kaskada:** Automatyczne dołączanie drugiej pompy przy wysokim zapotrzebowaniu (>90%)
+* **Equal Run Time:** Mechanizm zamiany pompy głównej przy każdym cyklu, co optymalizuje czas eksploatacji urządzeń
+* **Ochrona:** System ochrony przed suchobiegiem i zbędnymi cyklami załączeń
