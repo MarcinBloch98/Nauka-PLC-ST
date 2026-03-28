@@ -81,3 +81,9 @@ Algorytm zarządzania pracą dwóch pomp w systemie przepompowni
 * **Kaskada:** Automatyczne dołączanie drugiej pompy przy wysokim zapotrzebowaniu (>90%)
 * **Equal Run Time:** Mechanizm zamiany pompy głównej przy każdym cyklu, co optymalizuje czas eksploatacji urządzeń
 * **Ochrona:** System ochrony przed suchobiegiem i zbędnymi cyklami załączeń
+
+### 15. System Sortowania Paczek – Sortownik_paczek.st
+Logika sterowania linią transportową z automatyczną segregacją towaru na podstawie masy
+* **Synchronizacja Czasowa:** Wykorzystanie timera TON do odliczania czasu dojazdu paczki do sekcji wykonawczej (opóźnienie transportowe).
+* **Logika Decyzyjna:** Rozdzielanie paczek na "lekkie" i "ciężkie" przy użyciu instrukcji warunkowych i danych z wagowego czujnika analogowego
+* **Automatyzacja Cyklu:** Maszyna stanów kontrolująca pełny proces: od detekcji obecności, przez transport, aż po selekcję i powrót do stanu gotowości
