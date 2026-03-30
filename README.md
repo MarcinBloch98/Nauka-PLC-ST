@@ -86,4 +86,11 @@ Algorytm zarządzania pracą dwóch pomp w systemie przepompowni
 Logika sterowania linią transportową z automatyczną segregacją towaru na podstawie masy
 * **Synchronizacja Czasowa:** Wykorzystanie timera TON do odliczania czasu dojazdu paczki do sekcji wykonawczej (opóźnienie transportowe).
 * **Logika Decyzyjna:** Rozdzielanie paczek na "lekkie" i "ciężkie" przy użyciu instrukcji warunkowych i danych z wagowego czujnika analogowego
+
+### 16. Nadzór Wentylacji z Pętlą Zwrotną – Kontrola_wentylatora.st
+System sterowania wentylatorem z weryfikacją pracy na podstawie przepływu powietrza
+* **Startup Bypass:** Timer TON (5s) do ignorowania stanu czujnika podczas rozruchu
+* **Pętla Sprzężenia:** Ciągła weryfikacja czujnika przepływu względem stanu wyjścia
+* **Zabezpieczenie termiczne:** Wyłączenie układu po przekroczeniu 80°C
+
 * **Automatyzacja Cyklu:** Maszyna stanów kontrolująca pełny proces: od detekcji obecności, przez transport, aż po selekcję i powrót do stanu gotowości
