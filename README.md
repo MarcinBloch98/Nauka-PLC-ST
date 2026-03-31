@@ -86,11 +86,16 @@ Algorytm zarządzania pracą dwóch pomp w systemie przepompowni
 Logika sterowania linią transportową z automatyczną segregacją towaru na podstawie masy
 * **Synchronizacja Czasowa:** Wykorzystanie timera TON do odliczania czasu dojazdu paczki do sekcji wykonawczej (opóźnienie transportowe).
 * **Logika Decyzyjna:** Rozdzielanie paczek na "lekkie" i "ciężkie" przy użyciu instrukcji warunkowych i danych z wagowego czujnika analogowego
-
+* **Automatyzacja Cyklu:** Maszyna stanów kontrolująca pełny proces: od detekcji obecności, przez transport, aż po selekcję i powrót do stanu gotowości
+* 
 ### 16. Nadzór Wentylacji z Pętlą Zwrotną – Kontrola_wentylatora.st
 System sterowania wentylatorem z weryfikacją pracy na podstawie przepływu powietrza
 * **Startup Bypass:** Timer TON (5s) do ignorowania stanu czujnika podczas rozruchu
 * **Pętla Sprzężenia:** Ciągła weryfikacja czujnika przepływu względem stanu wyjścia
 * **Zabezpieczenie termiczne:** Wyłączenie układu po przekroczeniu 80°C
 
-* **Automatyzacja Cyklu:** Maszyna stanów kontrolująca pełny proces: od detekcji obecności, przez transport, aż po selekcję i powrót do stanu gotowości
+### 17. Cyfrowy Zadajnik Prędkości (VFD) – Zadajnik_predkosci.st
+Opracowanie interfejsu użytkownika do płynnego sterowania prędkością obrotową silnika w zakresie 0.0 - 100.0%
+* **Detekcja Zboczy (Edge Detection):** Wykorzystanie bloków funkcyjnych `R_TRIG` do precyzyjnej regulacji wartości. Dzięki temu zmiana następuje tylko raz na każde kliknięcie przycisku, niezależnie od czasu jego trzymania
+* **Ograniczanie Zakresu (Clamping):** Zastosowanie funkcji `LIMIT` gwarantującej, że wartość zadana nigdy nie przekroczy dopuszczalnych rejestrów (0-100%), co zapobiega błędom sterowania falownika
+* **Arytmetyka REAL:** Obliczenia na liczbach zmiennoprzecinkowych pozwalające na płynne skalowanie częstotliwości wyjściowej
