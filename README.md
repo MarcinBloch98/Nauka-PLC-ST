@@ -99,3 +99,9 @@ Opracowanie interfejsu użytkownika do płynnego sterowania prędkością obroto
 * **Detekcja Zboczy (Edge Detection):** Wykorzystanie bloków funkcyjnych `R_TRIG` do precyzyjnej regulacji wartości. Dzięki temu zmiana następuje tylko raz na każde kliknięcie przycisku, niezależnie od czasu jego trzymania
 * **Ograniczanie Zakresu (Clamping):** Zastosowanie funkcji `LIMIT` gwarantującej, że wartość zadana nigdy nie przekroczy dopuszczalnych rejestrów (0-100%), co zapobiega błędom sterowania falownika
 * **Arytmetyka REAL:** Obliczenia na liczbach zmiennoprzecinkowych pozwalające na płynne skalowanie częstotliwości wyjściowej
+
+* ### 18. Skalowanie Analogowe z alarmem – Skalowanie_poziomu_w_zbiorniku.st
+Kontrola sygnałów z czujników analogowych na jednostki inżynierskie
+* **Normalizacja:** Przeliczenie wartości z karty wejściowej na realny poziom w zbiorniku
+* **Histereza:** Logika alarmowa, załączająca alarm przy 9.0m, a wyłączająca przy 8.5m
+* **Data Integrity:** Wykorzystanie konwersji typów `INT_TO_REAL`
