@@ -105,3 +105,10 @@ Kontrola sygnałów z czujników analogowych na jednostki inżynierskie
 * **Normalizacja:** Przeliczenie wartości z karty wejściowej na realny poziom w zbiorniku
 * **Histereza:** Logika alarmowa, załączająca alarm przy 9.0m, a wyłączająca przy 8.5m
 * **Data Integrity:** Wykorzystanie konwersji typów `INT_TO_REAL`
+
+* ### 19. Sterownik Przepompowni (Histereza i Suchobieg) – Sterowanie_Przepompownia.st
+Algorytm sterowania pompą z zaawansowaną diagnostyką i zliczaniem cykli
+* **Logika Histerezy:** Wykorzystanie dwóch progów: start: 8.0m, Stop: 2.0m, w celu pracy napędu i uniknięcia częstych rozruchów co może wpływać negatywnie na pompę
+* **Zabezpieczenie przed Suchobiegiem:** Kontrola ciśnienia w rurociągu za pomocą timera `TON`, aby zabezpieczyć układ przed suchobiegiem, co uszkodziłoby pompę. Automatyczne wyłączenie pompy w przypadku braku potwierdzenia przepływu w czasie 3 sekund
+* **Zatrzask Awarii (Latch):** Blokada pracy po wystąpieniu alarmu, wymagająca fizycznej interwencji
+* **Analityka Pracy:** Zliczanie uruchomień układu z wykorzystaniem detekcji zbocza narastającego (`R_TRIG`).
