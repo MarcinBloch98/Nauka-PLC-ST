@@ -87,7 +87,7 @@ Logika sterowania linią transportową z automatyczną segregacją towaru na pod
 * **Synchronizacja Czasowa:** Wykorzystanie timera TON do odliczania czasu dojazdu paczki do sekcji wykonawczej (opóźnienie transportowe).
 * **Logika Decyzyjna:** Rozdzielanie paczek na "lekkie" i "ciężkie" przy użyciu instrukcji warunkowych i danych z wagowego czujnika analogowego
 * **Automatyzacja Cyklu:** Maszyna stanów kontrolująca pełny proces: od detekcji obecności, przez transport, aż po selekcję i powrót do stanu gotowości
-* 
+  
 ### 16. Nadzór Wentylacji z Pętlą Zwrotną – Kontrola_wentylatora.st
 System sterowania wentylatorem z weryfikacją pracy na podstawie przepływu powietrza
 * **Startup Bypass:** Timer TON (5s) do ignorowania stanu czujnika podczas rozruchu
@@ -100,15 +100,23 @@ Opracowanie interfejsu użytkownika do płynnego sterowania prędkością obroto
 * **Ograniczanie Zakresu (Clamping):** Zastosowanie funkcji `LIMIT` gwarantującej, że wartość zadana nigdy nie przekroczy dopuszczalnych rejestrów (0-100%), co zapobiega błędom sterowania falownika
 * **Arytmetyka REAL:** Obliczenia na liczbach zmiennoprzecinkowych pozwalające na płynne skalowanie częstotliwości wyjściowej
 
-* ### 18. Skalowanie Analogowe z alarmem – Skalowanie_poziomu_w_zbiorniku.st
+### 18. Skalowanie Analogowe z alarmem – Skalowanie_poziomu_w_zbiorniku.st
 Kontrola sygnałów z czujników analogowych na jednostki inżynierskie
 * **Normalizacja:** Przeliczenie wartości z karty wejściowej na realny poziom w zbiorniku
 * **Histereza:** Logika alarmowa, załączająca alarm przy 9.0m, a wyłączająca przy 8.5m
 * **Data Integrity:** Wykorzystanie konwersji typów `INT_TO_REAL`
 
-* ### 19. Sterownik Przepompowni (Histereza i Suchobieg) – Sterowanie_Przepompownia.st
+### 19. Sterownik Przepompowni (Histereza i Suchobieg) – Sterowanie_Przepompownia.st
 Algorytm sterowania pompą z zaawansowaną diagnostyką i zliczaniem cykli
 * **Logika Histerezy:** Wykorzystanie dwóch progów: start: 8.0m, Stop: 2.0m, w celu pracy napędu i uniknięcia częstych rozruchów co może wpływać negatywnie na pompę
 * **Zabezpieczenie przed Suchobiegiem:** Kontrola ciśnienia w rurociągu za pomocą timera `TON`, aby zabezpieczyć układ przed suchobiegiem, co uszkodziłoby pompę. Automatyczne wyłączenie pompy w przypadku braku potwierdzenia przepływu w czasie 3 sekund
 * **Zatrzask Awarii (Latch):** Blokada pracy po wystąpieniu alarmu, wymagająca fizycznej interwencji
 * **Analityka Pracy:** Zliczanie uruchomień układu z wykorzystaniem detekcji zbocza narastającego (`R_TRIG`).
+
+### 20. Transporter Tasmowy – Sterowanie_przepompownia.st
+Zaawansowany algorytm sterowania tasmociagiem oparty na maszynie stanow (CASE...OF).
+* **Architektura CASE:** Logika podzielona na trzy stany: OFF (0), AUTO (1) oraz SERVICE (2), co zwieksza przejrzystosc kodu
+* **Tryb Automatyczny:** Wykorzystanie timera TP do sterowania czasem jazdy (5s) po wykryciu obiektu/paczki
+* **Tryb Serwisowy (JOG):** Mozliwosc recznego wymuszenia pracy silnika przez operatora w trybie serwisowym
+* **Bezpieczenstwo (E-STOP):** Warunek stopu (styk NC) z najwiekszym priorytetem, ktory natychmiastowo resetuje maszyne do stanu bezpiecznego (OFF) w razie awarii - wylacza wszystko
+* **Licznik Wydajnosci:** Zliczanie sztuk towaru na zboczu narastajacym pracy silnika
