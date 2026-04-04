@@ -120,3 +120,11 @@ Zaawansowany algorytm sterowania tasmociagiem oparty na maszynie stanow (CASE...
 * **Tryb Serwisowy (JOG):** Mozliwosc recznego wymuszenia pracy silnika przez operatora w trybie serwisowym
 * **Bezpieczenstwo (E-STOP):** Warunek stopu (styk NC) z najwiekszym priorytetem, ktory natychmiastowo resetuje maszyne do stanu bezpiecznego (OFF) w razie awarii - wylacza wszystko
 * **Licznik Wydajnosci:** Zliczanie sztuk towaru na zboczu narastajacym pracy silnika
+
+### 21. Sterownik HVAC z Redundancją i Autodiagnostyką – Inteligentny_Sterownik_HVAC.st
+Zaawansowany algorytm sterowania wentylacją hali, skupiony na niezawodności i bezpieczeństwie procesowym (Fail-Safe).
+
+* **Autodiagnostyka Wejść (Wire-break):** Program kontroluje poprawność sygnałów z czujników. Wartości poza zakresem (-50°C do 150°C) są natychmiast wykrywane jako uszkodzenie okablowania
+* **Redundancja Czujników (Fail-over):** W przypadku awarii czujnika głównego, system natychmiast przełącza się na odczyt z czujnika zapasowego, aktywując przy tym alarm dla służb utrzymania ruchu
+* **Algorytm Fail-Safe:** W sytuacji utraty sygnału z obu czujników, sterownik wymusza pracę wentylatora na 100%, zapobiegając przegrzaniu urządzeń na hali (priorytet bezpieczeństwa)
+* **Stabilizacja Wyjścia (Histereza):** Implementacja programowej histerezy (2.0°C) zapobiega oscylacjom stycznika (tzw. "migotaniu" wyjścia) przy temperaturze oscylującej wokół punktu nastawy, co znacząco wydłuża żywotność silnika
