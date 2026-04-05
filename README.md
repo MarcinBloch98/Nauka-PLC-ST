@@ -123,8 +123,14 @@ Zaawansowany algorytm sterowania tasmociagiem oparty na maszynie stanow (CASE...
 
 ### 21. Sterownik HVAC z Redundancją i Autodiagnostyką – Inteligentny_Sterownik_HVAC.st
 Zaawansowany algorytm sterowania wentylacją hali, skupiony na niezawodności i bezpieczeństwie procesowym (Fail-Safe).
-
 * **Autodiagnostyka Wejść (Wire-break):** Program kontroluje poprawność sygnałów z czujników. Wartości poza zakresem (-50°C do 150°C) są natychmiast wykrywane jako uszkodzenie okablowania
 * **Redundancja Czujników (Fail-over):** W przypadku awarii czujnika głównego, system natychmiast przełącza się na odczyt z czujnika zapasowego, aktywując przy tym alarm dla służb utrzymania ruchu
 * **Algorytm Fail-Safe:** W sytuacji utraty sygnału z obu czujników, sterownik wymusza pracę wentylatora na 100%, zapobiegając przegrzaniu urządzeń na hali (priorytet bezpieczeństwa)
 * **Stabilizacja Wyjścia (Histereza):** Implementacja programowej histerezy (2.0°C) zapobiega oscylacjom stycznika (tzw. "migotaniu" wyjścia) przy temperaturze oscylującej wokół punktu nastawy, co znacząco wydłuża żywotność silnika
+
+### 22. System Smarowania Progresywnego – LubeControl_Main.st
+Algorytm sterowania układem smarowania połączony z napędem głównym
+* **Dual Triggering:** Automatyczne uruchomienie smarowania po 8h pracy netto LUB po 100 cyklach roboczych maszyny
+* **Monitoring ciśnienia:** Diagnostyka czasu narastania ciśnienia (min. 50 bar w 30s) zabezpieczająca przed pracą na sucho lub wyciekiem
+* **Safety Interlock:** Safety Interlock: Automatyczna blokada silnika głównego w przypadku wykrycia awarii układu smarowania (Predictive Maintenance)
+* **Zatrzask SET/RESET:** Zatrzask SET/RESET: Pełna obsługa przycisków monostabilnych START/STOP z priorytetem dla zatrzymania awaryjnego
