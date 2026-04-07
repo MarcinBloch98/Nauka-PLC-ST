@@ -3,7 +3,12 @@
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
 ---
-**23. Inteligentna Winda Magazynowa (5 poziomów) – Winda_Magazynowa_Analogowa.st**
+**24. Logika Taśmociągu** - Logika_tasmociagu.st
+Program sterujący linią transportową z funkcją oszczędzania energii oraz diagnostyką zatorów.
+Technologia: Structured Text (ST), standard IEC 61131-3.
+Safety: Obsługa przycisków NC i blokada programowa napędu przy awarii.
+
+**23. Inteligentna Winda Magazynowa (5 poziomów)** – Winda_Magazynowa_Analogowa.st
 Pozycjonowanie kabiny z wykorzystaniem czujnika analogowego i algorytmu
 * **Mapowanie Pozycji (CASE):** Przypisywanie 5 przystanków (0-4) do wartości cyfrowych czujnika odległości (0-1000 jednostek)
 * **Algorytm Histerezy:** Wkorzystanie tolerancji (+/- 10 jednostek), która eliminuje zjawisko "szarpania" silnikiem przy dojeżdżaniu do celu i stabilizuje postój
@@ -11,14 +16,14 @@ Pozycjonowanie kabiny z wykorzystaniem czujnika analogowego i algorytmu
 **Logika Przeciążeniowa:** Ciągły monitoring masy ładunku (Waga > 500) zintegrowany z systemem bezpieczeństwa, blokujący ruch w warunkach niebezpiecznych
 **Interlock Safety:** Nadrzędna sekcja zatrzymania (STOP/Alarm) umieszczona na końcu cyklu programu, gwarantująca najwyższy priorytet dla sygnałów bezpieczeństwa
 
-### 22. System Smarowania Progresywnego – LubeControl_Main.st
+**### 22. System Smarowania Progresywnego** – LubeControl_Main.st
 Algorytm sterowania układem smarowania połączony z napędem głównym
 * **Dual Triggering:** Automatyczne uruchomienie smarowania po 8h pracy netto LUB po 100 cyklach roboczych maszyny
 * **Monitoring ciśnienia:** Diagnostyka czasu narastania ciśnienia (min. 50 bar w 30s) zabezpieczająca przed pracą na sucho lub wyciekiem
 * **Safety Interlock:** Safety Interlock: Automatyczna blokada silnika głównego w przypadku wykrycia awarii układu smarowania (Predictive Maintenance)
 * **Zatrzask SET/RESET:** Zatrzask SET/RESET: Pełna obsługa przycisków monostabilnych START/STOP z priorytetem dla zatrzymania awaryjnego
 
-### 21. Sterownik HVAC z Redundancją i Autodiagnostyką – Inteligentny_Sterownik_HVAC.st
+**### 21. Sterownik HVAC z Redundancją i Autodiagnostyką** – Inteligentny_Sterownik_HVAC.st
 Zaawansowany algorytm sterowania wentylacją hali, skupiony na niezawodności i bezpieczeństwie procesowym (Fail-Safe).
 * **Autodiagnostyka Wejść (Wire-break):** Program kontroluje poprawność sygnałów z czujników. Wartości poza zakresem (-50°C do 150°C) są natychmiast wykrywane jako uszkodzenie okablowania
 * **Redundancja Czujników (Fail-over):** W przypadku awarii czujnika głównego, system natychmiast przełącza się na odczyt z czujnika zapasowego, aktywując przy tym alarm dla służb utrzymania ruchu
@@ -33,111 +38,111 @@ Zaawansowany algorytm sterowania tasmociagiem oparty na maszynie stanow (CASE...
 * **Bezpieczenstwo (E-STOP):** Warunek stopu (styk NC) z najwiekszym priorytetem, ktory natychmiastowo resetuje maszyne do stanu bezpiecznego (OFF) w razie awarii - wylacza wszystko
 * **Licznik Wydajnosci:** Zliczanie sztuk towaru na zboczu narastajacym pracy silnika
 
-### 19. Sterownik Przepompowni (Histereza i Suchobieg) – Sterowanie_Przepompownia.st
+**### 19. Sterownik Przepompowni (Histereza i Suchobieg)** – Sterowanie_Przepompownia.st
 Algorytm sterowania pompą z zaawansowaną diagnostyką i zliczaniem cykli
 * **Logika Histerezy:** Wykorzystanie dwóch progów: start: 8.0m, Stop: 2.0m, w celu pracy napędu i uniknięcia częstych rozruchów co może wpływać negatywnie na pompę
 * **Zabezpieczenie przed Suchobiegiem:** Kontrola ciśnienia w rurociągu za pomocą timera `TON`, aby zabezpieczyć układ przed suchobiegiem, co uszkodziłoby pompę. Automatyczne wyłączenie pompy w przypadku braku potwierdzenia przepływu w czasie 3 sekund
 * **Zatrzask Awarii (Latch):** Blokada pracy po wystąpieniu alarmu, wymagająca fizycznej interwencji
 * **Analityka Pracy:** Zliczanie uruchomień układu z wykorzystaniem detekcji zbocza narastającego (`R_TRIG`).
 
-### 18. Skalowanie Analogowe z alarmem – Skalowanie_poziomu_w_zbiorniku.st
+**### 18. Skalowanie Analogowe z alarmem** – Skalowanie_poziomu_w_zbiorniku.st
 Kontrola sygnałów z czujników analogowych na jednostki inżynierskie
 * **Normalizacja:** Przeliczenie wartości z karty wejściowej na realny poziom w zbiorniku
 * **Histereza:** Logika alarmowa, załączająca alarm przy 9.0m, a wyłączająca przy 8.5m
 * **Data Integrity:** Wykorzystanie konwersji typów `INT_TO_REAL`
 
-### 17. Cyfrowy Zadajnik Prędkości (VFD) – Zadajnik_predkosci.st
+**### 17. Cyfrowy Zadajnik Prędkości (VFD)** – Zadajnik_predkosci.st
 Opracowanie interfejsu użytkownika do płynnego sterowania prędkością obrotową silnika w zakresie 0.0 - 100.0%
 * **Detekcja Zboczy (Edge Detection):** Wykorzystanie bloków funkcyjnych `R_TRIG` do precyzyjnej regulacji wartości. Dzięki temu zmiana następuje tylko raz na każde kliknięcie przycisku, niezależnie od czasu jego trzymania
 * **Ograniczanie Zakresu (Clamping):** Zastosowanie funkcji `LIMIT` gwarantującej, że wartość zadana nigdy nie przekroczy dopuszczalnych rejestrów (0-100%), co zapobiega błędom sterowania falownika
 * **Arytmetyka REAL:** Obliczenia na liczbach zmiennoprzecinkowych pozwalające na płynne skalowanie częstotliwości wyjściowej
 
-### 16. Nadzór Wentylacji z Pętlą Zwrotną – Kontrola_wentylatora.st
+**### 16. Nadzór Wentylacji z Pętlą Zwrotną** – Kontrola_wentylatora.st
 System sterowania wentylatorem z weryfikacją pracy na podstawie przepływu powietrza
 * **Startup Bypass:** Timer TON (5s) do ignorowania stanu czujnika podczas rozruchu
 * **Pętla Sprzężenia:** Ciągła weryfikacja czujnika przepływu względem stanu wyjścia
 * **Zabezpieczenie termiczne:** Wyłączenie układu po przekroczeniu 80°C
 
-### 15. System Sortowania Paczek – Sortownik_paczek.st
+**### 15. System Sortowania Paczek** – Sortownik_paczek.st
 Logika sterowania linią transportową z automatyczną segregacją towaru na podstawie masy
 * **Synchronizacja Czasowa:** Wykorzystanie timera TON do odliczania czasu dojazdu paczki do sekcji wykonawczej (opóźnienie transportowe).
 * **Logika Decyzyjna:** Rozdzielanie paczek na "lekkie" i "ciężkie" przy użyciu instrukcji warunkowych i danych z wagowego czujnika analogowego
 * **Automatyzacja Cyklu:** Maszyna stanów kontrolująca pełny proces: od detekcji obecności, przez transport, aż po selekcję i powrót do stanu gotowości
 
-### 14. Kaskada Pomp z Autozamianą – Sterowanie_kaskadowe_pomp.st
+**### 14. Kaskada Pomp z Autozamianą** – Sterowanie_kaskadowe_pomp.st
 Algorytm zarządzania pracą dwóch pomp w systemie przepompowni
 * **Kaskada:** Automatyczne dołączanie drugiej pompy przy wysokim zapotrzebowaniu (>90%)
 * **Equal Run Time:** Mechanizm zamiany pompy głównej przy każdym cyklu, co optymalizuje czas eksploatacji urządzeń
 * **Ochrona:** System ochrony przed suchobiegiem i zbędnymi cyklami załączeń
 
-### 13. Skalowanie Analogowe (PT100) – Skalowanie_analogowe_PT100.st
+**### 13. Skalowanie Analogowe (PT100)** – Skalowanie_analogowe_PT100.st
 Program realizujący przeliczanie  danych z wejścia analogowego sterownika na °C
 * **Konwersja:** Wykorzystanie funkcji `INT_TO_REAL` do obliczeń na liczbach zmiennoprzecinkowych
 * **Matematyka Procesowa:** Wykorzystanie wzoru na liniowe skalowanie sygnału w zakresie -50.0 do 150.0°C
 * **Diagnostyka:** Automatyczny alarm przekroczenia temperatury krytycznej (>100°C)
 
-### 12. Automatyczny Mieszalnik – Automatyczny_mieszalnik.st
+**### 12. Automatyczny Mieszalnik** – Automatyczny_mieszalnik.st
 Algorytm sterowania sekwencyjnego z przygotowaniem mieszanki dwóch składników.
 * **Maszyna Stanów (CASE):** Wykorzystanie struktury `CASE...OF` do zarządzania etapami procesu
 * **Obsługa Sygnałów Analogowych:** Dozowanie składników A (40%) i B (80%) na podstawie odczytu z analogowego czujnika poziomu (REAL)
 * **Automatyzacja Czasowa:** Zastosowanie timera TON do odliczania 10 sekund cyklu mieszania
 * **Logika Bezpieczeństwa:** Wdrożenie nadrzędnego sygnału Stop Awaryjny (E-Stop), który natychmiast przerywa sekwencję i resetuje układ do stanu bezpiecznego
 
-### 11. Automatyczny Cykl Nawrotny – Automatyczny_cykl_nawrotny.st
+**### 11. Automatyczny Cykl Nawrotny** – Automatyczny_cykl_nawrotny.st
 Automatyczne sterowanie zmianą kierunku pracy napędu (Lewo/Prawo)
 * **Logika sekwencyjna:** Automatyczne przełączanie kierunków po upływie czasu pracy (5s)
 * **Bezpieczeństwo (Interlock):** Pauza (3s) przed każdą zmianą kierunku
 * **Pamięć stanu:** Wykorzystanie flagi do zapamiętywania fazy cyklu i przejścia w kolejny krok
 * **Priorytet Stop:** Natychmiastowe zatrzymanie automatu po naciśnięciu przycisku STOP (NC)
 
-### 10. Regulacja Poziomu – Regulacja_poziomu_w_zbiorniku_z_histereza.st
+**### 10. Regulacja Poziomu** – Regulacja_poziomu_w_zbiorniku_z_histereza.st
 Algorytm napełniania zbiornika w zakresie 20-80%
 * **Histereza:** Blokada przed zbyt częstym uruchomieniom i wyłączeniom pompy
 * **Ochrona sprzętu:** Likwidacja zjawiska "szarpania" stycznikiem przy niewielkich wahaniach poziomu cieczy
 * **Diagnostyka:** Wykrycie wartości poza zakresem czujnika (-5% do 105%) i automatyczne przejście w stan zabezpieczający układ
 
-### 9. Rozruch Kaskadowy – Sekwencyjne_wlaczanie_silnikow.st
+**### 9. Rozruch Kaskadowy** – Sekwencyjne_wlaczanie_silnikow.st
 Sekwencyjnye uruchamianiem napędów
 * **Pomiar zwłoki:** Użycie timerów TON do odliczania przerw (5s) między startem sekcji
 * **Logika powiązań:** Zabezpieczenie przed startem dalszych silników w przypadku awarii poprzednika
 * **Bezpieczeństwo:** Użycie podtrzymania programowego z priorytetem dla sygnału STOP (NC)
 
-### 8. Licznik czasu pracy – Licznik_Godzin_Pracy.st
+**### 8. Licznik czasu pracy** – Licznik_Godzin_Pracy.st
 System monitorowania zużycia eksploatacyjnego napędu
 * **Pomiar czasu:** Zliczanie sekund pracy tylko podczas aktywnego sygnału silnika
 * **Diagnostyka HMI:** Automatyczne przeliczanie jednostek na motogodziny
 * **Harmonogram serwisu:** System powiadomień o przeglądzie technicznym po przekroczeniu 500h
 
-### 7. Monitorowanie ruchu – Kontrola_ruchu_tasmy.st
+**### 7. Monitorowanie ruchu** – Kontrola_ruchu_tasmy.st
 Nadzór faktycznej pracy silnika z wykorzystaniem czujnika obrotów
 * **Oczekiwanie na rozruch:** Czas ochronny (3s) pozwalający maszynie na wejście w obroty
 * **Nadzór czasu:** Kontrola czasu między impulsami (800ms)
 * **Blokada ruchu:** Automatyczne zatrzymanie napędu w przypadku wykrycia blokady mechanicznej
 
-### 6. Licznik Produkcji – Production_counter.st
+**### 6. Licznik Produkcji** – Production_counter.st
 Zliczanie detali z użyciem detekcji zbocza narastającego `R_TRIG`
 
-### 5. Alarmy z Histerezą – Obsluga_alarmow_analogowych.st
+**### 5. Alarmy z Histerezą** – Obsluga_alarmow_analogowych.st
 Monitorowanie progów bezpieczeństwa dla wartości analogowych
 * **Histereza:** Zapobieganie fluktuacjom sygnału i fałszywym alarmom
 * **Poziomy:** Rozdzielenie ostrzeżenia od alarmu krytycznego
 
-### 4. Skalowanie Analogowe – Skalowanie_Analogowe.st
+**### 4. Skalowanie Analogowe** – Skalowanie_Analogowe.st
 Przeliczanie danych wejściowych (INT) na wartości fizyczne (REAL)
 * **Diagnostyka:** Detekcja błędów pomiarowych
 
-### 3. Diagnostyka Silnika – Motor_Control_Diagnostic.st
+**### 3. Diagnostyka Silnika** – Motor_Control_Diagnostic.st
 Sterowanie napędem z monitoringiem odpowiedzi
 * **Feedback:** Czasowa weryfikacja odpowiedzi ze stycznika (2s)
 * **Zabezpieczenie:** Integracja z wyłącznikiem silnikowym (termikiem)
 * **Statusy HMI:** Przekazywanie komunikatów tekstowych o błędach
 
-### 2. Maszyna Stanu – Sterowanie_sekwencyjne_tasmociagu.st
+**### 2. Maszyna Stanu** – Sterowanie_sekwencyjne_tasmociagu.st
 Sekwencja pracy z użyciem instrukcji `CASE`
 * **Skalowalność:** Numeracja stanów co 10 pozwala na łatwe dodawanie kroków pośrednich
 * **Stany:** Obsługa trybów IDLE, RUNNING oraz ERROR
 
-### 1. Obsługa Grzyba – Emergency_Stop.st
+**### 1. Obsługa Grzyba** – Emergency_Stop.st
 System bezpieczeństwa dla maszyny
 * **Logika NC:** Reakcja na zanik napięcia (bezpieczeństwo w przypadku uszkodzenia przewodu)
 * **Reset:** Blokada restartu – wymagane świadome potwierdzenie operatora po ustąpieniu awarii
