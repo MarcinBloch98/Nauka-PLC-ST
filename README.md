@@ -3,6 +3,13 @@
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
 ---
+**25. Logika ukladu bramy garazowej** - Inteligentny_garaz.st
+* **Wykrywanie:** Monitoring stężenia dwutlenku węgla
+* **Wentylacja:** Aktywacja wyciągu po wykryciu gazu. Wykorzystano timer TOF, który podtrzymuje pracę wentylatora przez 10 sekund po ustaniu sygnału z czujnika, aby mieć pewność całkowitego usunięcia czynnika z powietrza
+* **Blokada Bramy:** Ze względów bezpieczeństwa, silnik bramy zostaje zablokowany, gdy poziom CO2 przekracza bezpieczną normę, uniemożliwiając wjazd
+* **Automatyka światła:** Światło zapala się samoistnie po wykryciu ruchu z czujników
+* **Detekcja awarii:** System po włączaniu wentylatora, oczekuje na sygnał powietdzający 
+
 **24. Logika Taśmociągu** - Logika_tasmociagu.st
 Program sterujący linią transportową z funkcją oszczędzania energii oraz diagnostyką zatorów.
 Technologia: Structured Text (ST), standard IEC 61131-3.
