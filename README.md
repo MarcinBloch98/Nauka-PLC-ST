@@ -3,6 +3,13 @@
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
 ---
+**26. Automatyczna stacja pakująca zbiorcza** - 26_Stacja_pakujaca.st
+* **Zliczanie produktów:** Wykorzystanie licznika CTU do odliczania 6 sztuk towaru na tasmociągu
+* **Sekwencja spychająca:** Po osiągnięciu limitu 6 sztuk, system automatycznie zatrzymuje taśmę, aby nie doszlo do kolizji z kolejnymi paczkami
+* **Sterowanie czasowe:** Wykorzystanie timera impulsowego do sterowania siłownikiem zrzutowym paczek 2 sekundy
+*  **Automatyczny Reset:** Licznik samoczynnie sie resetuje i wznawia pracę taśmy po pełnym zapakowaniu paczki, co pozwala na ciaglą pracę
+* **Bezpieczeństwo (E-Stop):** Wykorzystanie przycisku awaryjnego ze stykiem NC, który przerywa pracę silnika taśmy oraz siłownika
+
 **25. Logika ukladu bramy garazowej** - Inteligentny_garaz.st
 * **Wykrywanie:** Monitoring stężenia dwutlenku węgla
 * **Wentylacja:** Aktywacja wyciągu po wykryciu gazu. Wykorzystano timer TOF, który podtrzymuje pracę wentylatora przez 10 sekund po ustaniu sygnału z czujnika, aby mieć pewność całkowitego usunięcia czynnika z powietrza
