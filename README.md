@@ -3,6 +3,15 @@
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
 ---
+**27. Inteligentna Prasa Hydrauliczna (BHP & Proces) – 27_Prasa_Hydrauliczna.st**
+Algorytm sterowania siłownikiem prasy z naciskiem na bezpieczeństwo operatora.
+* **Sterowanie Dwuręczne:** Zastosowanie logiki wymagającej jednoczesnego wciśnięcia dwóch przycisków (Przycisk_1 AND Przycisk_2), co eliminuje ryzyko włożenia dłoni w strefę pracy maszyny
+* **Czujnik świetlny (NC)**: Wykorzystanie czujnika bezpieczeństwa – przerwanie wiązki w fazie ruchu powoduje natychmiastowe wycofanie tłoka do pozycji bezpiecznej
+* **Maszyna Stanów (CASE):** Podział procesu na fazy: oczekiwanie, ruch w dół, Docisk czasowy, powrót
+* **Docisk Sekwencyjny:** Wykorzystanie timera TON do utrzymania ciśnienia przez 3 sekundy a następnie powrotem siłownika
+* **Licznik Wydajności:** Użycie zmiennej Liczba_sztuk następuje dopiero po poprawnie wykonanym docisku detalu
+* **Logika Fail-Safe:** Automatyczne wycofanie maszyny w przypadku puszczenia przycisków sterujących przed zakończeniem cyklu
+
 **26. Automatyczna stacja pakująca zbiorcza** - 26_Stacja_pakujaca.st
 * **Zliczanie produktów:** Wykorzystanie licznika CTU do odliczania 6 sztuk towaru na tasmociągu
 * **Sekwencja spychająca:** Po osiągnięciu limitu 6 sztuk, system automatycznie zatrzymuje taśmę, aby nie doszlo do kolizji z kolejnymi paczkami
