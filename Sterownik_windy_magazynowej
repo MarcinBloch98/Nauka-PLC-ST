@@ -1,0 +1,43 @@
+VAR
+przycisk_P0 : BOOL;
+przycisk_P1 : BOOL;
+przycisk_P2 : BOOL;
+silnik_gora : BOOL;
+silnik_dol : BOOL;
+czujnik_drzwi_otwartych : BOOL;
+czujnik_drzwi_zamknietych : BOOL;
+silnik_zamykania_drzwi : BOOL;
+silnik_otwierania_drzwi : BOOL;
+obecne pietro : INT;
+czujnik_windy_na_1_pietrze
+END_VAR;
+
+// wybor pietra
+IF przycisk_P0 THEN Cel := 50;   END_IF;  // poziom 0
+IF przycisk_P1 THEN Cel := 500;  END_IF;  // poziom 1
+IF przycisk_P2 THEN Cel := 950;  END_IF;  // poziom 2
+
+// logika ruchu - tylko gdy drzwi zamknięte
+IF NOT drzwi_Otwarte THEN
+    
+    // jazda w górę
+    IF pozycja_Analogowa < (Cel - 10) THEN
+        silnik_gora := TRUE;
+        silnik_dol := FALSE;
+        
+    // jazda w dół
+    ELSIF pozycja_Analogowa > (Cel + 10) THEN
+        silnik_gora := FALSE;
+        silnik_dol := TRUE;
+        
+    // stop jesteśmy na wlasdciwym pietrze 
+    ELSE
+        silnik_gora := FALSE;
+        silnik_dol := FALSE;
+    END_IF;
+
+ELSE
+    // jeśli drzwi otwarte - STOP natychmiastowy
+    silnik_gora := FALSE;
+    silnik_dol := FALSE;
+END_IF;
