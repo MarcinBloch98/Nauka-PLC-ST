@@ -3,6 +3,14 @@
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
 ---
+**28. Inteligentna Winda Magazynowa (Pozycjonowanie Analogowe) – 23_Winda_Analog.st**
+Algorytm sterowania windą towarową 3 poziomową
+Pozycjonowanie bezstykowe: Zastąpienie klasycznych krańcówek odczytem z czujnika odległości (zakres 0-1000 jednostek)
+Histereza: Wykorzystanie programowego marginesu błędu (+/- 10 jednostek), likwidująca zjawisko "szarpania" napędem przy dojeżdżaniu do celu
+Zarządzanie Celem: Wykorzystanie zmiennej Cel jako nastawy, co pozwala na łatwą konfigurację poziomów bez zmiany logiki ruchu
+System bezpieczeństwa: Najwyższy priorytet blokady ruchu przy otwartych drzwiach oraz funkcja natychmiastowego zatrzymania w przypadku naruszenia bezpieczeństwa podczas jazdy
+Diagnostyka Stanu: Podział logiki na sekcję wyboru poziomu oraz sekcję wykonawczą, co ułatwia kontrolowanie kodu online
+
 **27. Inteligentna Prasa Hydrauliczna (BHP & Proces) – 27_Prasa_Hydrauliczna.st**
 Algorytm sterowania siłownikiem prasy z naciskiem na bezpieczeństwo operatora.
 * **Sterowanie Dwuręczne:** Zastosowanie logiki wymagającej jednoczesnego wciśnięcia dwóch przycisków (Przycisk_1 AND Przycisk_2), co eliminuje ryzyko włożenia dłoni w strefę pracy maszyny
