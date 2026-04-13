@@ -3,15 +3,23 @@
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
 ---
-**28. Inteligentna Winda Magazynowa (Pozycjonowanie Analogowe) – 23_Winda_Analog.st**
-Algorytm sterowania windą towarową 3 poziomową
-Pozycjonowanie bezstykowe: Zastąpienie klasycznych krańcówek odczytem z czujnika odległości (zakres 0-1000 jednostek)
-Histereza: Wykorzystanie programowego marginesu błędu (+/- 10 jednostek), likwidująca zjawisko "szarpania" napędem przy dojeżdżaniu do celu
-Zarządzanie Celem: Wykorzystanie zmiennej Cel jako nastawy, co pozwala na łatwą konfigurację poziomów bez zmiany logiki ruchu
-System bezpieczeństwa: Najwyższy priorytet blokady ruchu przy otwartych drzwiach oraz funkcja natychmiastowego zatrzymania w przypadku naruszenia bezpieczeństwa podczas jazdy
-Diagnostyka Stanu: Podział logiki na sekcję wyboru poziomu oraz sekcję wykonawczą, co ułatwia kontrolowanie kodu online
+**29. Automatyczna Myjnia Samochodowa (Sekwencja Czasowa) – Myjnia_samochodowa.st**
+Algorytm sterowania sekwencyjnego procesem mycia pojazdu z wykorzystaniem maszyny stanów.
+**Maszyna stanow (CASE):** Zastosowanie struktury krokowej (0-4), która gwarantuje, że kolejne procesy (namaczanie, mycie, płukanie, suszenie) nigdy nie nałożą się na siebie w niepożądany sposób
+**Wielopoziomowa Kontrola Czasu:** Zastosowanie bloków TON dla każdego etapu procesu, pozwalających na niezależną kontrolę czasu trwania każdej z faza (np. dłuższe mycie, krótsze płukanie).
+**Bezpieczenstwo NC (Normally Closed):** Wykorzystanie logiki dla przycisku bezpieczeństwa STOP. Program monitoruje ciągłość obwodu – w przypadku wciśnięcia przycisku lub awarii okablowania, system natychmiast przechodzi w stan bezpieczny i resetuje wszystkie wyjścia
 
-**27. Inteligentna Prasa Hydrauliczna (BHP & Proces) – 27_Prasa_Hydrauliczna.st**
+Zarzadzanie Wyjsciami: Koordynacja pracy wielu odbiorników jednocześnie (elektrozawory wody/szamponu, napędy szczotek oraz wentylator suszarki) w zależności od aktualnego kroku algorytmu
+
+**28. Inteligentna Winda Magazynowa (Pozycjonowanie Analogowe) – Myjnia_samochodowa.st**
+Algorytm sterowania windą towarową 3 poziomową
+**Pozycjonowanie bezstykowe:** Zastąpienie klasycznych krańcówek odczytem z czujnika odległości (zakres 0-1000 jednostek)
+Histereza: Wykorzystanie programowego marginesu błędu (+/- 10 jednostek), likwidująca zjawisko "szarpania" napędem przy dojeżdżaniu do celu
+**Zarządzanie Celem:** Wykorzystanie zmiennej Cel jako nastawy, co pozwala na łatwą konfigurację poziomów bez zmiany logiki ruchu
+**System bezpieczeństwa:** Najwyższy priorytet blokady ruchu przy otwartych drzwiach oraz funkcja natychmiastowego zatrzymania w przypadku naruszenia bezpieczeństwa podczas jazdy
+**Diagnostyka Stanu:** Podział logiki na sekcję wyboru poziomu oraz sekcję wykonawczą, co ułatwia kontrolowanie kodu online
+
+**27. Inteligentna Prasa Hydrauliczna (BHP & Proces) – Prasa_Hydrauliczna.st**
 Algorytm sterowania siłownikiem prasy z naciskiem na bezpieczeństwo operatora.
 * **Sterowanie Dwuręczne:** Zastosowanie logiki wymagającej jednoczesnego wciśnięcia dwóch przycisków (Przycisk_1 AND Przycisk_2), co eliminuje ryzyko włożenia dłoni w strefę pracy maszyny
 * **Czujnik świetlny (NC)**: Wykorzystanie czujnika bezpieczeństwa – przerwanie wiązki w fazie ruchu powoduje natychmiastowe wycofanie tłoka do pozycji bezpiecznej
@@ -20,7 +28,7 @@ Algorytm sterowania siłownikiem prasy z naciskiem na bezpieczeństwo operatora.
 * **Licznik Wydajności:** Użycie zmiennej Liczba_sztuk następuje dopiero po poprawnie wykonanym docisku detalu
 * **Logika Fail-Safe:** Automatyczne wycofanie maszyny w przypadku puszczenia przycisków sterujących przed zakończeniem cyklu
 
-**26. Automatyczna stacja pakująca zbiorcza** - 26_Stacja_pakujaca.st
+**26. Automatyczna stacja pakująca zbiorcza** - Stacja_pakujaca.st
 * **Zliczanie produktów:** Wykorzystanie licznika CTU do odliczania 6 sztuk towaru na tasmociągu
 * **Sekwencja spychająca:** Po osiągnięciu limitu 6 sztuk, system automatycznie zatrzymuje taśmę, aby nie doszlo do kolizji z kolejnymi paczkami
 * **Sterowanie czasowe:** Wykorzystanie timera impulsowego do sterowania siłownikiem zrzutowym paczek 2 sekundy
