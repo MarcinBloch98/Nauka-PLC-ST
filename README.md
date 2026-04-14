@@ -3,6 +3,13 @@
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
 ---
+**30. Inteligentna Stacja Sortujaca z Kontrola Jakosci – Stacja_sortujaca.st**
+Sterowanie sekwencyjne obróbką sygnałów analogowych i diagnostyką procesu
+**Zaawansowana Maszyna Stanow (CASE):** Złożona logika krokowa (kroki 0-45) zarządzająca transportem, precyzyjnym pozycjonowaniem i selekcją produktów
+**Przetwarzanie Sygnalu Analogowego:** Wykorzystanie kontroli wagi produktu. Wykorzystanie okna tolerancji do automatycznej klasyfikacji produktów na poprawne (OK) i wadliwe (NOK)
+**System Diagnostyki i Safety:** Funkcja wykrywania błędów. Automatyczne zatrzymanie linii i aktywacja alarmu po wykryciu trzech wadliwych sztuk pod rząd, wymagające ręcznego potwierdzenia
+**Zarzadzanie Wyjsciami:** Praca napędu taśmociągu oraz elementów pneumatycznych z siłownikiem odrzutu, z uwzględnieniem czasów stabilizacji pomiaru
+
 **29. Automatyczna Myjnia Samochodowa (Sekwencja Czasowa) – Myjnia_samochodowa.st**
 Algorytm sterowania sekwencyjnego procesem mycia pojazdu z wykorzystaniem maszyny stanów.
 **Maszyna stanow (CASE):** Zastosowanie struktury krokowej (0-4), która gwarantuje, że kolejne procesy (namaczanie, mycie, płukanie, suszenie) nigdy nie nałożą się na siebie w niepożądany sposób
