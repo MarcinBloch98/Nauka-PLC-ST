@@ -3,6 +3,13 @@
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
 ---
+**31. Monitoring obciążenia silnika - Monitoring_obciazenia_silnika.st**
+* **Ochrona przed przeciążeniem:** Zastosowanie  zwłoki czasowej (5s) dla prądu rozruchowego i roboczego przy użyciu timera TON
+* **Zabezpieczenie termiczne:** Natychmiastowe przerwanie pracy przy przekroczeniu temperatury krytycznej uzwojeń
+* **Obsługa przycisku STOP (NC):** Zastosoawnie logiki bezpieczeństwa – przerwanie obwodu skutkuje natychmiastowym stopem silnika
+* **Restart awarii:** Blokada programowa uniemożliwiająca reset awarii przed schłodzeniem silnika do normalnego poziomu
+* **Licznik ilości włączeń:** Dodanie licznika CTU zliczającego całkowitą liczbę załączeń stycznika głównego
+
 **30. Inteligentna Stacja Sortujaca z Kontrola Jakosci – Stacja_sortujaca.st**
 Sterowanie sekwencyjne obróbką sygnałów analogowych i diagnostyką procesu
 **Zaawansowana Maszyna Stanow (CASE):** Złożona logika krokowa (kroki 0-45) zarządzająca transportem, precyzyjnym pozycjonowaniem i selekcją produktów
