@@ -3,6 +3,14 @@
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
 ---
+**32. Sterownik oswietlenia klatki schodowej – Sterownik_oswietlenia_klatki.st**
+System sterowania oświetleniem budynkowym, dający komfort użytkownika z optymalizacją zużycia energii
+**Logika układu:** Obsługa czujnika ruchu (Auto) oraz przycisku wielofunkcyjnego
+**Funkcja ostrzeżenia:** Użycie czasu, który upłynął timera do sygnalizacji zbliżającego się wyłączenia światła poprzez redukcję mocy światła (Dimming) lub mruganie
+**Detekcja Długiego Przyciśnięcia (Long Press): Rozróżnianie krótkiego kliknięcia (start timera) od przytrzymania powyżej 3s (tryb serwisowy)
+
+Blokada Jasności: Integracja z czujnikiem zmierzchowym (fotokomórką), zapobiegająca niepotrzebnemu załączaniu świateł w dzień.
+
 **31. Monitoring obciążenia silnika - Monitoring_obciazenia_silnika.st**
 * **Ochrona przed przeciążeniem:** Zastosowanie  zwłoki czasowej (5s) dla prądu rozruchowego i roboczego przy użyciu timera TON
 * **Zabezpieczenie termiczne:** Natychmiastowe przerwanie pracy przy przekroczeniu temperatury krytycznej uzwojeń
