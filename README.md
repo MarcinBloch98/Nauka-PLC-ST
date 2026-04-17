@@ -3,11 +3,17 @@
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
 ---
+**33. Automat prasy formującej – Sterownik_Prasy_Formujacej.st**
+Program sekwencyjny oparty na maszynie stanów (CASE...OF), realizujący cykl pracy prasy hydraulicznej/pneumatycznej z wymaganym naciskiem na bezpieczeństwo operatora
+**Maszyna Stanów (State Machine):** Podział procesu na 4 faz(Oczekiwanie, ruch siłownika w dół, prasowanie, powrót siłownika):
+**Funkcja bezpieczenstwa:** Wymaganie ciągłego trzymania przycisku Start podczas fazy ruchu i prasowania. Zwolnienie przycisku w dowolnym momencie skutkuje natychmiastowym przerwaniem cyklu i wycofaniem prasy
+**Sprzężenie zwrotne:** Wykorzystanie czujników krańcowych (Czujnik_gora, Czujnik_dol) do weryfikacji fizycznego położenia tłoka przed przejściem do kolejnego kroku, co zapobiega błędom procesowym
+
 **32. Sterownik oswietlenia klatki schodowej – Sterownik_oswietlenia_klatki.st**
 System sterowania oświetleniem budynkowym, dający komfort użytkownika z optymalizacją zużycia energii
 **Logika układu:** Obsługa czujnika ruchu (Auto) oraz przycisku wielofunkcyjnego
 **Funkcja ostrzeżenia:** Użycie czasu, który upłynął timera do sygnalizacji zbliżającego się wyłączenia światła poprzez redukcję mocy światła (Dimming) lub mruganie
-**Detekcja Długiego Przyciśnięcia (Long Press): Rozróżnianie krótkiego kliknięcia (start timera) od przytrzymania powyżej 3s (tryb serwisowy)
+**Detekcja Długiego Przyciśnięcia (Long Press):** Rozróżnianie krótkiego kliknięcia (start timera) od przytrzymania powyżej 3s (tryb serwisowy)
 
 Blokada Jasności: Integracja z czujnikiem zmierzchowym (fotokomórką), zapobiegająca niepotrzebnemu załączaniu świateł w dzień.
 
