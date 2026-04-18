@@ -3,6 +3,13 @@
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
 ---
+**34. Sterownik Bramy Magazynowej z Kurtyną Powietrzną – Sterownik_Bramy_Kurtyna.st**
+Zaawansowany system sterowania dostępem zintegrowany z systemem oszczędzania energii HVAC.
+**Logika hybrydowa:** Wykorzystanie maszyny stanów z opóźnieniem czasowym wyłączenia ukladu
+**System bezpieczeństwa:** Użycie bariery optycznej zapobiegającej zamknięciu bramy gdy obiekt jest w miejscu pracy
+**Efektywność energetyczna:** Zautomatyzowane sterowanie kurtyną powietrzną w celu minimalizacji strat ciepła
+**Analityka:** Licznik cykli pracy dla odpowiedniego planowania przegladów technicznych
+
 **33. Automat prasy formującej – Sterownik_Prasy_Formujacej.st**
 Program sekwencyjny oparty na maszynie stanów (CASE...OF), realizujący cykl pracy prasy hydraulicznej/pneumatycznej z wymaganym naciskiem na bezpieczeństwo operatora
 **Maszyna Stanów (State Machine):** Podział procesu na 4 faz(Oczekiwanie, ruch siłownika w dół, prasowanie, powrót siłownika):
@@ -14,8 +21,7 @@ System sterowania oświetleniem budynkowym, dający komfort użytkownika z optym
 **Logika układu:** Obsługa czujnika ruchu (Auto) oraz przycisku wielofunkcyjnego
 **Funkcja ostrzeżenia:** Użycie czasu, który upłynął timera do sygnalizacji zbliżającego się wyłączenia światła poprzez redukcję mocy światła (Dimming) lub mruganie
 **Detekcja Długiego Przyciśnięcia (Long Press):** Rozróżnianie krótkiego kliknięcia (start timera) od przytrzymania powyżej 3s (tryb serwisowy)
-
-Blokada Jasności: Integracja z czujnikiem zmierzchowym (fotokomórką), zapobiegająca niepotrzebnemu załączaniu świateł w dzień.
+**Blokada Jasności:** Integracja z czujnikiem zmierzchowym (fotokomórką), zapobiegająca niepotrzebnemu załączaniu świateł w dzień.
 
 **31. Monitoring obciążenia silnika - Monitoring_obciazenia_silnika.st**
 * **Ochrona przed przeciążeniem:** Zastosowanie  zwłoki czasowej (5s) dla prądu rozruchowego i roboczego przy użyciu timera TON
