@@ -3,6 +3,14 @@
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
 ---
+**35. Inteligentny Sterownik Oświetlenia Korytarzowego – Oświetlenie_korytarzowe.st**
+Algorytm zarządzania oświetleniem w automatyce budynkowej, z naciskiem na maksymalną oszczędność i komforcie użytkownika
+**Logika dzień/noc:** Program bazuje na zegarze czasu rzeczywistego, aby automatycznie przełączać się między pełną mocą (100% w dzień), a trybem zredukowanym (30% w nocy), co ma nie oślepiać pracowników
+**Tryb Standby:** Zaprojektowanie sekwencyjnego wyłączania – zamiast nagłego odcięcia światła, system przechodzi w tryb 10% mocy po 30 sekundach braku ruchu
+**Oszczędność Energii:** Wykorzystanie blokady oświetlenia przy wystarczającym natężeniu światła naturalnego (powyżej 500 lx), co eliminuje niepotrzebne zużycie prądu.
+**Maszyna Stanów:** Program działający na strukturze CASE...OF, z zaprojektowanymi stananmi OFF, FULL i STANDBY.
+**Automatyczne wyłączanie:** Funkcja całkowitego wyłączenia systemu po 5 minutach bezczynności w trybie czuwania
+
 **34. Sterownik Bramy Magazynowej z Kurtyną Powietrzną – Sterownik_Bramy_Kurtyna.st**
 Zaawansowany system sterowania dostępem zintegrowany z systemem oszczędzania energii HVAC.
 **Logika hybrydowa:** Wykorzystanie maszyny stanów z opóźnieniem czasowym wyłączenia ukladu
