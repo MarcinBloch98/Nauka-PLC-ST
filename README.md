@@ -2,7 +2,11 @@
 
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
----
+**36. Automatyczny sterownik sekcji podlewania - Nawadnianie_ogrodu.st**
+**Oszczędność wody:** Blokada podlewania w przypadku wykrycia opadów (czujnik deszczu) lub gdy wilgotność gleby jest wystarczająca (powyżej 40%)
+**Harmonogram świtu:** Automatyczny start o godzinie 5:00 rano, co minimalizuje parowanie wody i szok termiczny dla roślin
+**Zabezpieczenie przed przelaniem:** Blokada cyklu gwarantujący tylko jedno uruchomienie w ciągu doby
+
 **35. Inteligentny Sterownik Oświetlenia Korytarzowego – Oświetlenie_korytarzowe.st**
 Algorytm zarządzania oświetleniem w automatyce budynkowej, z naciskiem na maksymalną oszczędność i komforcie użytkownika
 **Logika dzień/noc:** Program bazuje na zegarze czasu rzeczywistego, aby automatycznie przełączać się między pełną mocą (100% w dzień), a trybem zredukowanym (30% w nocy), co ma nie oślepiać pracowników
