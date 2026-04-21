@@ -2,6 +2,14 @@
 
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
+**37. Automatyczna stacja napełniania butelek – Stacja_napelniania_butelek.st**
+System dozujący, wykorzystujący wagę analogową do odmierzania cieczy oraz realizuje proces kontroli jakości
+**Maszyna stanów:** Program posiada 5 stanów, co zapewnia przewidywalność zachowania procesu – od ustawienia butelki, przez nalewanie do weryfikacji wagi napoju
+**Sprzężenie Zwrotne z wagi:** System na bieżąco kontroluje wagę, aby w odpowiednim momencie zamknać zawór dozujący ciecz
+**Etap stabilizacji pomiaru:** Zastosowanie 2-sekundowego opóźnienia po zakończeniu nalewania. Pozwala to na ustabilizowanie się cieczy w butelce i uzyskanie precyzyjnego odczytu przed kontrolą jakości
+**Kontrola Jakości:** System automatycznie sprawdza, czy finalna waga mieści się w przedziale 495g – 505g
+**Zarządzanie alarmami:** W przypadku wykrycia niedolania lub przelania, system aktywuje blokadę alarmową, wymagającą interwencji operatora 
+
 **36. Automatyczny sterownik sekcji podlewania - Nawadnianie_ogrodu.st**
 **Oszczędność wody:** Blokada podlewania w przypadku wykrycia opadów (czujnik deszczu) lub gdy wilgotność gleby jest wystarczająca (powyżej 40%)
 **Harmonogram świtu:** Automatyczny start o godzinie 5:00 rano, co minimalizuje parowanie wody i szok termiczny dla roślin
