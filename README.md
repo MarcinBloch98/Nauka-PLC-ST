@@ -2,6 +2,13 @@
 
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
+**38. Skalowanie sygnału analogowego z obsługą alarmów – Skalowanie_analogowe.st**
+Program ten pokazuje odejście od maszyny stanów instrukcji CaSE, skupiając się na przetwarzaniu prorgamów w czasie rzeczywistym
+* **Wykorzystanie matematyki:** Zastosowanie skalowania liniowego (konwersja wartości `INT` z wejść na fizyczną `REAL`)
+* **Konwersja typów danych:** Wykorzystanie funkcji `INT_TO_REAL` do zapewnienia precyzji obliczeń i uniknięcia błędów dzielenia całkowitego
+* **System monitoringu:** Niezależne bloki kontrolne sprawdzające progi alarmowe (High-High oraz Low-Low) w każdym cyklu sterownika
+* **Brak sekwencyjności:** Kod jest wykonywany w całości w każdym skanie PLC, co gwarantuje najszybszą reakcję wartości programu
+
 **37. Automatyczna stacja napełniania butelek – Stacja_napelniania_butelek.st**
 System dozujący, wykorzystujący wagę analogową do odmierzania cieczy oraz realizuje proces kontroli jakości
 **Maszyna stanów:** Program posiada 5 stanów, co zapewnia przewidywalność zachowania procesu – od ustawienia butelki, przez nalewanie do weryfikacji wagi napoju
