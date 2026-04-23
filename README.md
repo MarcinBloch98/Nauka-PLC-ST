@@ -2,6 +2,20 @@
 
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
+**39. Tablica pomiarów - Filtr cyfrowy sygnału**
+Program realizujący funkcję programowego filtra dolnoprzepustowego, służący do stabilizacji sygnałów z czujników analogowych narażonych na szumy i nagłe skoki
+* **Rejestr przesuwny:** Wykorzystanie tablicy ARRAY[0..9] OF REAL do przechowywania historii 10 ostatnich pomiarów
+* **Logika przesuwania:** Zastosowanie pętli FOR do automatycznego przesuwania danych w pamięci – każda nowa próbka wypycha najstarszą, utrzymując aktualne pomiarowe
+* **Obróbka danych statystycznych:** Obliczanie średniej w czasie rzeczywistym, co pozwala na wygładzenie przebiegu sygnału
+* **Diagnostyka Trendu:** System alarmowy reagujący na uśrednioną wartość z 50 sekund (10 próbek co 5 sekund), eliminujące ryzyko fałszywych alarmów przy chwilowych wahaniach
+
+Zastosowane konstrukcje ST:
+Pętle FOR ... TO ... BY -1 ... DO: Do efektywnej manipulacji indeksami tablicy.
+
+Próbkowanie czasowe TON: Kontrola gęstości zapisu danych do rejestru.
+
+Matematyka na liczbach zmiennoprzecinkowych (REAL): Zapewnienie wysokiej precyzji obliczeń procesowych
+
 **38. Skalowanie sygnału analogowego z obsługą alarmów – Skalowanie_analogowe.st**
 Program ten pokazuje odejście od maszyny stanów instrukcji CaSE, skupiając się na przetwarzaniu prorgamów w czasie rzeczywistym
 * **Wykorzystanie matematyki:** Zastosowanie skalowania liniowego (konwersja wartości `INT` z wejść na fizyczną `REAL`)
