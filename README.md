@@ -9,13 +9,6 @@ Program realizujący funkcję programowego filtra dolnoprzepustowego, służący
 * **Obróbka danych statystycznych:** Obliczanie średniej w czasie rzeczywistym, co pozwala na wygładzenie przebiegu sygnału
 * **Diagnostyka Trendu:** System alarmowy reagujący na uśrednioną wartość z 50 sekund (10 próbek co 5 sekund), eliminujące ryzyko fałszywych alarmów przy chwilowych wahaniach
 
-Zastosowane konstrukcje ST:
-Pętle FOR ... TO ... BY -1 ... DO: Do efektywnej manipulacji indeksami tablicy.
-
-Próbkowanie czasowe TON: Kontrola gęstości zapisu danych do rejestru.
-
-Matematyka na liczbach zmiennoprzecinkowych (REAL): Zapewnienie wysokiej precyzji obliczeń procesowych
-
 **38. Skalowanie sygnału analogowego z obsługą alarmów – Skalowanie_analogowe.st**
 Program ten pokazuje odejście od maszyny stanów instrukcji CaSE, skupiając się na przetwarzaniu prorgamów w czasie rzeczywistym
 * **Wykorzystanie matematyki:** Zastosowanie skalowania liniowego (konwersja wartości `INT` z wejść na fizyczną `REAL`)
