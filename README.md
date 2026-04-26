@@ -2,6 +2,13 @@
 
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
+40. Wielostanowiskowy Licznik Paczek – Zarządzanie Tablicami (PLC ST)
+* **Inteligęntne liczenie produktów:** Użycie struktur danych zamiast dodawanie zbędnych czujników co minimalizuje koszty
+* **Dynamiczne adresowanie:** Wykorzystanie tablicy umożliwiającej na obsługę wielu stanowisk jednym rejestrem. O tym gdzie trafi paczka, decyduje wartość zmiennej Numer_stanowiska
+* **Automatyzacja pętlą FOR:** Pętla pozwalająca na zresetowanie wszystkich liczników jednocześnie, niezależnie od ich liczby
+* **Zabezpieczenie Range Checking:** Kontrola zakresu - zapobiega to próbom zapisu danych poza obszar tablicy, co w rzeczywistych sterownikach PLC mogłoby doprowadzić do zatrzymania procesora
+* **Detekcja zboczy:** Zapewnia poprawność liczenia – jedno naciśnięcie przycisku lub jeden sygnał z czujnika to dokładnie jedna paczka
+
 **39. Tablica pomiarów - Filtr cyfrowy sygnału**
 Program realizujący funkcję programowego filtra dolnoprzepustowego, służący do stabilizacji sygnałów z czujników analogowych narażonych na szumy i nagłe skoki
 * **Rejestr przesuwny:** Wykorzystanie tablicy ARRAY[0..9] OF REAL do przechowywania historii 10 ostatnich pomiarów
