@@ -2,7 +2,13 @@
 
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
-40. Wielostanowiskowy Licznik Paczek – Zarządzanie Tablicami (PLC ST)
+**41. Analiza danych – Algorytm wyszukiwania wartości maksymalnej**
+Wskazywanie wartosci o najweikszej wartosci w tablicy
+* **Zastosowanie pętli:** Wykorzystanie pętli FOR do sekwencyjnego sprawdzenia każdego elementu tablicy ARRAY[0..4]
+* **porównywanie wartości:** Program w każdym kroku pętli porównuje bieżący element z dotychczasowym rekordem (Max_Wartosc), aktualizując dane tylko po znalezieniu wyższej wartości
+**Inicjalizacja zmiennych:** Resetowanie wartości maksymalnej przed każdym skanem pętli zapewnia rzetelność wyników i odporność na błędy z poprzednich cykli
+
+**40. Wielostanowiskowy Licznik Paczek – Zarządzanie Tablicami (PLC ST)**
 * **Inteligęntne liczenie produktów:** Użycie struktur danych zamiast dodawanie zbędnych czujników co minimalizuje koszty
 * **Dynamiczne adresowanie:** Wykorzystanie tablicy umożliwiającej na obsługę wielu stanowisk jednym rejestrem. O tym gdzie trafi paczka, decyduje wartość zmiennej Numer_stanowiska
 * **Automatyzacja pętlą FOR:** Pętla pozwalająca na zresetowanie wszystkich liczników jednocześnie, niezależnie od ich liczby
