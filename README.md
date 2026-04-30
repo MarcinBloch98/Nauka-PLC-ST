@@ -2,6 +2,12 @@
 
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
+**43. Autorski Licznik Godzin z Blokadą Napędu (Licznik_godzin_z_blokada.st)**
+Program zlicza czas dbając o bezpieczeństwo maszyny
+**Bezpieczeństwo:** W przeciwieństwie do podstawowych liczników, ten program posiada funkcję blokady silnika. Po przekroczeniu limitu czasu pracy, program natychmiastowo zatrzymuje silnik aby wykonać serwis
+**Zliczanie czasu:**. Zastosowanei zmiennej DINT pozwala na zliczanie nawet tysięcy godzin bezproblemowo
+**Możliwość resetu serwisowego:** Zerowanie rejestru czasu i zdejmując blokadę z napędu, dając szansę dalszą pracę po serwisie
+
 **41. Analiza danych – Algorytm wyszukiwania wartości maksymalnej**
 Wskazywanie wartosci o najweikszej wartosci w tablicy
 * **Zastosowanie pętli:** Wykorzystanie pętli FOR do sekwencyjnego sprawdzenia każdego elementu tablicy ARRAY[0..4]
