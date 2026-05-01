@@ -2,6 +2,14 @@
 
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
+## 44. Automat Segregujący Odpady (`Automat_segregujacy.st`)
+Program segregujący odpady, poddajacy detekcji roadzjów materiałów danego odpadu**
+* **Struktura CASE:** Program podzielony na logiczne kroki, co zapewnia pełną kontrolę nad sekwencyjnym cyklem maszyny
+* **System bezpieczeństwa:** Obsługa wejścia `E_Stop` jako styk **NC (Normally Closed)**. Każde przerwanie obwodu skutkuje natychmiastowym zatrzymaniem napędów 
+* **Selekcja materiałów:** Wykorzystanie czujników identyfikacji rodzaju materiałów, a następnie kierowania odpadów do odpowiednich kontenerów
+*   **Precyzja:** Zastosowanie bloków `TON` do synchronizacji transportu z pracą siłowników pneumatycznych
+*   **Feedback mechaniczny:** Logika uzależniona od sygnałów z krańcówek
+
 **43. Autorski Licznik Godzin z Blokadą Napędu (Licznik_godzin_z_blokada.st)**
 Program zlicza czas dbając o bezpieczeństwo maszyny
 **Bezpieczeństwo:** W przeciwieństwie do podstawowych liczników, ten program posiada funkcję blokady silnika. Po przekroczeniu limitu czasu pracy, program natychmiastowo zatrzymuje silnik aby wykonać serwis
