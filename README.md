@@ -2,13 +2,20 @@
 
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
+## 45. System Nawadniania Szklarni (`System_nawadniania_szklarni.st`)
+Program sterujący podlewający rośliny, z optymalizowany kodem z indeksowaniem danych
+*   **Zastosowanie Tablic** Czasy pracy dla poszczególnych sekcji są przechowywane w tablicy, co łatwe dopasowanie czasów podlwania każdej z sekcji
+*   **Sterowanie sekcjami:** Wykorzystanie zmiennej `Numer_sekcji` do prostego wskazywania aktualnie aktywnego zaworu (`Zawory[Numer_sekcji]`)
+*   **Deterministyczna Maszyna Stanów:** Podział procesu na kroki (Inicjalizacja, Podlewanie, Przełączenie sekcji) eliminuje ryzyko jednoczesnego otwarcia wielu zaworów.
+*   **Prawidłowa Obsługa Timerów:** Blok `TON` jest wywoływany w każdym cyklu, co odlicza czas niezależnie od numeru kroku
+
 ## 44. Automat Segregujący Odpady (`Automat_segregujacy.st`)
 Program segregujący odpady, poddajacy detekcji roadzjów materiałów danego odpadu**
 * **Struktura CASE:** Program podzielony na logiczne kroki, co zapewnia pełną kontrolę nad sekwencyjnym cyklem maszyny
 * **System bezpieczeństwa:** Obsługa wejścia `E_Stop` jako styk **NC (Normally Closed)**. Każde przerwanie obwodu skutkuje natychmiastowym zatrzymaniem napędów 
 * **Selekcja materiałów:** Wykorzystanie czujników identyfikacji rodzaju materiałów, a następnie kierowania odpadów do odpowiednich kontenerów
-*   **Precyzja:** Zastosowanie bloków `TON` do synchronizacji transportu z pracą siłowników pneumatycznych
-*   **Feedback mechaniczny:** Logika uzależniona od sygnałów z krańcówek
+* **Precyzja:** Zastosowanie bloków `TON` do synchronizacji transportu z pracą siłowników pneumatycznych
+* **Feedback mechaniczny:** Logika uzależniona od sygnałów z krańcówek
 
 **43. Autorski Licznik Godzin z Blokadą Napędu (Licznik_godzin_z_blokada.st)**
 Program zlicza czas dbając o bezpieczeństwo maszyny
