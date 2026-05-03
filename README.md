@@ -2,6 +2,13 @@
 
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
+## 46. Licznik Wydajności z Rejestrem (`Licznik_wydajnosci_z_rejestrem.st`)
+Program monitorujący czas produkcji
+*   **Bufor pierścieniowy:** Nadpisywanie najstarszych danych nowymi przy użyciu ograniczonego miejsca tablicy
+*   **Pętla FOR:** Przetwarzanie zbiorów danych (sumowanie tablicy) w jednym cyklu sterownika
+*   **Konwersja danych:** Przekształcanie typu `TIME` na formaty liczbowe (`LINT`), aby móc przeprowadzić operacje matematyczne
+*   **Detekcja Zboczy:** Użycie `R_TRIG` do synchronizacji zapisu danych z fizycznym zdarzeniem na linii produkcyjnej
+
 ## 45. System Nawadniania Szklarni (`System_nawadniania_szklarni.st`)
 Program sterujący podlewający rośliny, z optymalizowany kodem z indeksowaniem danych
 *   **Zastosowanie Tablic** Czasy pracy dla poszczególnych sekcji są przechowywane w tablicy, co łatwe dopasowanie czasów podlwania każdej z sekcji
