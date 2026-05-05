@@ -2,7 +2,7 @@
 
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
-## 47. Sterowanie Rampy (`Sterowanie_dynamiczne_rampy.st`)**
+## 47. Sterowanie Rampy (`Sterowanie_dynamiczne_rampy.st`)
 Algorytm płynnego sterowania sygnałem analogowym
 *  **Płynność sygnału:** Eliminacja gwałtownych skoków wartości poprzez narastanie/opadanie krokowe, co chroni odbiorniki i mechanikę maszyn
 *  **Skalowanie:** Przeliczanie wartości procentowej (0.0 - 100.0%) na standardową rozdzielczość sterownika (0 - 27648) przy użyciu konwersji REAL_TO_INT
