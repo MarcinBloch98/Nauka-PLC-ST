@@ -2,6 +2,13 @@
 
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
+## 48. Diagnostyka uszkodzenia czujnika (`Diagnostyka_uszkodzenia_czujnika.st`)
+Algorytm typu **Watchdog** dla sygnałów analogowych, zapobiegający pracy na błędnych danych.
+* **Detekcja uszkodzenia (freeze):** Program weryfikuje, czy wartość z czujnika ulega zmianie. Jeśli sygnał się nie zmienia przez 10 sekund, system sygnalizuje awarię
+* **Analiza sygnałów (ABS):** Wykorzystanie wartości sygnału do badania różnicy pomiędzy dwoma cyklami, co pozwala na wykrycie braku aktywności sygnałuz czujnika
+* **Filtracja:** Zastosowanie timera `TON` pozwala na odróżnienie naturalnych, krótkich przestojów w odczytywania wartosci z czujnika od rzeczywistej awarii sprzętowej
+* **Bezpieczeństwo:** Funkcja niezbędna aby była możliwa, samokontgrola programu, co pomaga zminimalizowaćnie wykrycia awarii układu
+* 
 ## 47. Sterowanie Rampy (`Sterowanie_dynamiczne_rampy.st`)
 Algorytm płynnego sterowania sygnałem analogowym
 *  **Płynność sygnału:** Eliminacja gwałtownych skoków wartości poprzez narastanie/opadanie krokowe, co chroni odbiorniki i mechanikę maszyn
