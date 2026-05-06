@@ -8,7 +8,7 @@ Algorytm typu **Watchdog** dla sygnałów analogowych, zapobiegający pracy na b
 * **Analiza sygnałów (ABS):** Wykorzystanie wartości sygnału do badania różnicy pomiędzy dwoma cyklami, co pozwala na wykrycie braku aktywności sygnałuz czujnika
 * **Filtracja:** Zastosowanie timera `TON` pozwala na odróżnienie naturalnych, krótkich przestojów w odczytywania wartosci z czujnika od rzeczywistej awarii sprzętowej
 * **Bezpieczeństwo:** Funkcja niezbędna aby była możliwa, samokontgrola programu, co pomaga zminimalizowaćnie wykrycia awarii układu
-* 
+  
 ## 47. Sterowanie Rampy (`Sterowanie_dynamiczne_rampy.st`)
 Algorytm płynnego sterowania sygnałem analogowym
 *  **Płynność sygnału:** Eliminacja gwałtownych skoków wartości poprzez narastanie/opadanie krokowe, co chroni odbiorniki i mechanikę maszyn
