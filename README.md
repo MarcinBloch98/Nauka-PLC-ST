@@ -2,6 +2,13 @@
 
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
+## 49. Naprzemienna rotacja pracy pomp (`Naprzemienna rotacja pracy pomp`)
+Algorytm zarządzania kaskadą pomp aby zapewnic rownomierne zuzycie
+* **Automatyczna zamiana naprzemienna pompy:** Wykorzystanie zbocza narastającego do zmiany aktywnej pompy po akdzym uruchomieniu
+* **Zabezpieczenie pomp:** Program jest zabezpieczony, przed praca dwoch pomp jednoczesnie, co by mogło być obciażeniem dla zasilania
+* **Automatyczna zamiana pompy:** Wykorzystanie zbocza do zmiany aktywnej pompy
+* **Zabezpieczenie pracy jednej pompy:** Konstrukcja warunków gwarantuje że w danym momencie pracuje tylko jedna pompa
+
 ## 48. Diagnostyka uszkodzenia czujnika (`Diagnostyka_uszkodzenia_czujnika.st`)
 Algorytm typu **Watchdog** dla sygnałów analogowych, zapobiegający pracy na błędnych danych.
 * **Detekcja uszkodzenia (freeze):** Program weryfikuje, czy wartość z czujnika ulega zmianie. Jeśli sygnał się nie zmienia przez 10 sekund, system sygnalizuje awarię
