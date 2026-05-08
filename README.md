@@ -2,7 +2,15 @@
 
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
-## 49. Naprzemienna rotacja pracy pomp (`Naprzemienna rotacja pracy pomp`)
+## 50. System obsługi i sygnalizacji alarmów (`System_obslugi_alarmow.st`)
+Algorytm zarządzania stanami awaryjnymi oraz sygnalizacją wizualną
+* **Wizualna sygnalizacja stanów:** Wykorzystanie generatora impulsów do rozróżnienia alarmu niepotwierdzonego (miganie) od potwierdzonego (świecenie ciągłe)
+* **Pamięć wystąpienia awarii:** Zastosowanie flagi alarmu, która przechowuje informację o awarii
+* **Reset alarmu**: Konstrukcja programu wymuszająca fizyczne potwierdzenie błędu przez operatora przed powrotem do trybu pracy
+* **Zabezpieczenie przed samoczynnym startem:** Program blokuje wyjście procesowe do czasu całkowitego usunięcia przyczyny awarii i zresetowania układu
+
+
+## 49. Naprzemienna rotacja pracy pomp (`Naprzemienna rotacja pracy pom.st`)
 Algorytm zarządzania kaskadą pomp aby zapewnic rownomierne zuzycie
 * **Automatyczna zamiana naprzemienna pompy:** Wykorzystanie zbocza narastającego do zmiany aktywnej pompy po akdzym uruchomieniu
 * **Zabezpieczenie pomp:** Program jest zabezpieczony, przed praca dwoch pomp jednoczesnie, co by mogło być obciażeniem dla zasilania
