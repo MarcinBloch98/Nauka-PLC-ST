@@ -2,6 +2,12 @@
 
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
+## 51. Zaawansowany sterownik prasy hydraulicznej (`Zaawansowany_sterownik_prasy_hydraulicznej.st`)
+Zastosowanie maszyny stanów sterującej cyklem produkcyjnym maszyny dociskającej detale
+Typy Wyliczeniowe (ENUM): Zastosowanie autorskich sekwencji z użytą sekwencja stanó maszyny (OCZEKIWANIE, PRASOWANIE, ALARM), co pozwala eliminować błędy logiczne i zwiększa czytelność kodu dla programisty
+Logika sekwencyjna: Pełna kontrola nad cyklem wyglądający następująco: dojazd do krańcówki, precyzyjny czas docisku (użyty Timer TON), automatyczny powrót i powrót siłownika
+System Bezpieczeństwa: Nadrzędny stan alarmowy odcina wszystkie wyjścia sterujące w przypadku wykrycia nieprawidłowości
+
 ## 50. System obsługi i sygnalizacji alarmów (`System_obslugi_alarmow.st`)
 Algorytm zarządzania stanami awaryjnymi oraz sygnalizacją wizualną
 * **Wizualna sygnalizacja stanów:** Wykorzystanie generatora impulsów do rozróżnienia alarmu niepotwierdzonego (miganie) od potwierdzonego (świecenie ciągłe)
