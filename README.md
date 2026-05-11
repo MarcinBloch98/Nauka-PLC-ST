@@ -2,7 +2,7 @@
 
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
-**52. Monitor Wydajności Cyklu (`Monitor_wydajnosci_cyklu.st`)**
+## 52. Monitor Wydajności Cyklu (`Monitor_wydajnosci_cyklu.st`)
 Algorytm monitorujący sprawność mechaniczną układu poprzez monitoring cyklu maszyny
 **Pomiar czasu rzeczywistego:** Badanie czasu timera do określeaia czasu trwania cyklu pracy
 **Diagnostyka predykcyjna:** System porównuje czas ostatniego cyklu z zadanym limitem, co umożliwia wykrycie np. spadków ciśnienia w układzie lub zużycia uszczelnień siłownika.
