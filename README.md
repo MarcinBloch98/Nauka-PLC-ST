@@ -2,11 +2,16 @@
 
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
+**52. Monitor Wydajności Cyklu (`Monitor_wydajnosci_cyklu.st`)**
+Algorytm monitorujący sprawność mechaniczną układu poprzez monitoring cyklu maszyny
+**Pomiar czasu rzeczywistego:** Badanie czasu timera do określeaia czasu trwania cyklu pracy
+**Diagnostyka predykcyjna:** System porównuje czas ostatniego cyklu z zadanym limitem, co umożliwia wykrycie np. spadków ciśnienia w układzie lub zużycia uszczelnień siłownika.
+
 ## 51. Zaawansowany sterownik prasy hydraulicznej (`Zaawansowany_sterownik_prasy_hydraulicznej.st`)
 Zastosowanie maszyny stanów sterującej cyklem produkcyjnym maszyny dociskającej detale
-Typy Wyliczeniowe (ENUM): Zastosowanie autorskich sekwencji z użytą sekwencja stanó maszyny (OCZEKIWANIE, PRASOWANIE, ALARM), co pozwala eliminować błędy logiczne i zwiększa czytelność kodu dla programisty
-Logika sekwencyjna: Pełna kontrola nad cyklem wyglądający następująco: dojazd do krańcówki, precyzyjny czas docisku (użyty Timer TON), automatyczny powrót i powrót siłownika
-System Bezpieczeństwa: Nadrzędny stan alarmowy odcina wszystkie wyjścia sterujące w przypadku wykrycia nieprawidłowości
+**Typy Wyliczeniowe (ENUM):** Zastosowanie autorskich sekwencji z użytą sekwencja stanów maszyny (OCZEKIWANIE, PRASOWANIE, ALARM), co pozwala eliminować błędy logiczne i zwiększa czytelność kodu dla programisty
+**Logika sekwencyjna:** Pełna kontrola nad cyklem wyglądający następująco: dojazd do krańcówki, precyzyjny czas docisku (użyty Timer TON), automatyczny powrót i powrót siłownika
+**System Bezpieczeństwa:** Nadrzędny stan alarmowy odcina wszystkie wyjścia sterujące w przypadku wykrycia nieprawidłowości
 
 ## 50. System obsługi i sygnalizacji alarmów (`System_obslugi_alarmow.st`)
 Algorytm zarządzania stanami awaryjnymi oraz sygnalizacją wizualną
