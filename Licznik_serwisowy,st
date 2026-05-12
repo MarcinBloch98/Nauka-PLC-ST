@@ -1,0 +1,27 @@
+VAR
+    LicznikCykli   : INT;    // liczba wykonanych cykli
+    LimitSerwisu   : INT := 1000; // ilosc cykli po ktorych zapali sie lampka
+    SygnalCyklu    : BOOL;   // sygnal po skonczeniu cyklu
+    ResetSerwisu   : BOOL;   // reset po serwisie
+    WymaganySerwis : BOOL;   // lampka panelu
+    DetekcjaZbocza : R_TRIG; // identyfikacja zakonczenia cyklu
+END_VAR
+
+// wykrycie zakonczenia cyklu
+DetekcjaZbocza(CLK := SygnalCyklu);
+
+// liczenie
+IF DetekcjaZbocza.Q THEN
+    LicznikCykli := LicznikCykli + 1;
+END_IF;
+
+// detekcja limitu
+IF LicznikCykli >= LimitSerwisu THEN
+    WymaganySerwis := TRUE;
+END_IF;
+
+// tryb serwisowy - reset licznika
+IF ResetSerwisu THEN
+    LicznikCykli := 0;
+    WymaganySerwis := FALSE;
+END_IF;
