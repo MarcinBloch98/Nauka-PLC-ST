@@ -2,6 +2,12 @@
 
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
+## 53. Licznik Serwisowy Maszyny (`Licznik_serwisowy_maszyny.st`)
+Algorytm monitorujący zużycie eksploatacyjne maszyny poprzez zliczanie cykli pracy.
+* **Detekcja:** Detekcja jest oparta na zboczu, co pozwala unikn ać problemu z długimi syghnałami
+* **Zarządzanie:** Automatyczna sygnalizacja flagi `WymaganySerwis` po osiągnięciu progu 1000 cykli
+* **Interfejs techniczny:** Zaimplementowanie seystemu dla obsługi serwisowej
+
 ## 52. Monitor Wydajności Cyklu (`Monitor_wydajnosci_cyklu.st`)
 Algorytm monitorujący sprawność mechaniczną układu poprzez monitoring cyklu maszyny
 **Pomiar czasu rzeczywistego:** Badanie czasu timera do określeaia czasu trwania cyklu pracy
@@ -19,7 +25,6 @@ Algorytm zarządzania stanami awaryjnymi oraz sygnalizacją wizualną
 * **Pamięć wystąpienia awarii:** Zastosowanie flagi alarmu, która przechowuje informację o awarii
 * **Reset alarmu**: Konstrukcja programu wymuszająca fizyczne potwierdzenie błędu przez operatora przed powrotem do trybu pracy
 * **Zabezpieczenie przed samoczynnym startem:** Program blokuje wyjście procesowe do czasu całkowitego usunięcia przyczyny awarii i zresetowania układu
-
 
 ## 49. Naprzemienna rotacja pracy pomp (`Naprzemienna rotacja pracy pom.st`)
 Algorytm zarządzania kaskadą pomp aby zapewnic rownomierne zuzycie
