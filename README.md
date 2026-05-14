@@ -2,6 +2,14 @@
 
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
+## 54. Inteligentny Sterownik Oświetlenia Hali (`Sterownik_Oswietlenia_Hali.st`)
+Automatyka optymalizacji użytej energii systemu oświetlenia
+**Skalowanie sygnałów:** Samodzielna implementacja skalowania wartości surowych (RAW 0-27648) na jednostki fizyczne (0-1000 Lux) przy użyciu konwersji typów INT_TO_REAL.
+Tryb Energooszczędny (Energy Saving):
+**-W godzinach 07:00 - 17:00:** Poziom oświetlenia jest utrzymywany, wyłączając wykrywając źródło światła narturalnego
+**-Tryb Nocny:** Logika uzależniona od obecności pracowników. Zastosowano blok TOF (Off-Delay Timer), który podtrzymuje oświetlenie przez 15 minut od ostatniego wykrycia ruchu przez czujnik PIR.
+**-Stabilizacja sygnału:** Wprowadzenie marginesu przełączania, co likwiduje "miganie" świateł przy oscylacjach przy granicznych wartościach natężeniach światła [luks] i zapobiega przedwczesnym zuzyciu styków stycznika
+
 ## 53. Licznik Serwisowy Maszyny (`Licznik_serwisowy_maszyny.st`)
 Algorytm monitorujący zużycie eksploatacyjne maszyny poprzez zliczanie cykli pracy.
 * **Detekcja:** Detekcja jest oparta na zboczu, co pozwala unikn ać problemu z długimi syghnałami
