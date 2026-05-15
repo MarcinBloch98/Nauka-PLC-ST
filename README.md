@@ -2,6 +2,10 @@
 
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
+**55. System Kontroli Oddymiania i Napowietrzania Klatki Schodowej (`System_oddymiania_klatki.st`)**
+Projekt algorytmu bezpieczeństwa pożarowego (Safety System) odpowiedzialnego za usuwanie gazów pożarowych oraz wytwarzanie nadciśnienia na drogach ewakuacyjnych
+* **Logika Dual-Trigger:** Układ procedury alarmowej zintegrowany z automatyczną centralą sygnalizacji pożarowej 
+
 ## 54. Inteligentny Sterownik Oświetlenia Hali (`Sterownik_Oswietlenia_Hali.st`)
 Automatyka optymalizacji użytej energii systemu oświetlenia
 * **Skalowanie sygnałów:** Samodzielna implementacja skalowania wartości surowych (RAW 0-27648) na jednostki fizyczne (0-1000 Lux) przy użyciu konwersji typów INT_TO_REAL.
