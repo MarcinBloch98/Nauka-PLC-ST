@@ -22,5 +22,5 @@ IF R_Trig_Minus.Q AND Wartosc_Zadana > 0.0 THEN
     Wartosc_Zadana := Wartosc_Zadana - Step;
 END_IF;
 
-// Zabezpieczenie przed praca w nimozliwych zakresach - ponizej 0, ponad 100 procent
+// Ochrona przed praca w nimozliwych zakresach - ponizej 0, ponad 100 procent
 Wartosc_Zadana := LIMIT(0.0, Wartosc_Zadana, 100.0);
