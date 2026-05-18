@@ -2,6 +2,13 @@
 
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
+## 56. Sterownik Centrali Wentylacyjnej z implemetnacją zegara RTC (`Sterownik_centrali_wentylacyjnej.st`)
+Algorytm sterowania mikroklimatem w budynku komercyjnym na podstawie jakości powietrza oraz harmonogramu czasowego
+* **Obsługa zegara systemowego:** Użycie funkcji systemowej RD_LOC_T oraz DTL dla systemów marki Siemens, aby pobierać aktualny czas lokalny z procesora
+* **Energooszczędny tryb nocny:** Zastosowanie harmonogramu pracy nocnej (18:00 - 06:00), która poza godzinami pracy biura pozwala redukować wydajność wentylatora do bezpiecznego minimum (10%), znacząco ograniczając zużycie energii
+* **Przetwarzanie sygnałów analogowych:** Przeliczenie sygnału prądowego z przetwornika CO_2 (RAW 0-27648) na wartość fizyczną wyrażoną w ppm (0.0 - 2000.0)
+* **Kaskadowa kontrola jakości powietrza:** Algorytm dopasowania wydajności nawiewu (50%, 75%, 100%) w trybie dziennym, reagujący na wzrost stężenia dwutlenku węgla poprzez obecność ludzi
+
 **55. System Kontroli Oddymiania i Napowietrzania Klatki Schodowej (`System_oddymiania_klatki.st`)**
 Projekt algorytmu bezpieczeństwa pożarowego (Safety System) odpowiedzialnego za usuwanie gazów pożarowych oraz wytwarzanie nadciśnienia na drogach ewakuacyjnych
 * **Logika Dual-Trigger:** Układ procedury alarmowej zintegrowany z automatyczną centralą sygnalizacji pożarowej 
