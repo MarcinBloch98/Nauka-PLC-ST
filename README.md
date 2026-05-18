@@ -9,7 +9,7 @@ Algorytm sterowania mikroklimatem w budynku komercyjnym na podstawie jakości po
 * **Przetwarzanie sygnałów analogowych:** Przeliczenie sygnału prądowego z przetwornika CO_2 (RAW 0-27648) na wartość fizyczną wyrażoną w ppm (0.0 - 2000.0)
 * **Kaskadowa kontrola jakości powietrza:** Algorytm dopasowania wydajności nawiewu (50%, 75%, 100%) w trybie dziennym, reagujący na wzrost stężenia dwutlenku węgla poprzez obecność ludzi
 
-**55. System Kontroli Oddymiania i Napowietrzania Klatki Schodowej (`System_oddymiania_klatki.st`)**
+## 55. System Kontroli Oddymiania i Napowietrzania Klatki Schodowej (`System_oddymiania_klatki.st`)
 Projekt algorytmu bezpieczeństwa pożarowego (Safety System) odpowiedzialnego za usuwanie gazów pożarowych oraz wytwarzanie nadciśnienia na drogach ewakuacyjnych
 * **Logika Dual-Trigger:** Układ procedury alarmowej zintegrowany z automatyczną centralą sygnalizacji pożarowej 
 
