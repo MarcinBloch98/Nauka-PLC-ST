@@ -2,6 +2,12 @@
 
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
+## 57. Inteligentny Sterownik Komory Termicznej z Histerezą i Funkcją Safe-Pause (`Sterownik_pieca_przemyslowego.st`)
+Algorytm sterowania procesem termicznym - wygrzewanie, pieczenie. Program zarządza pętlą grzewczą komory, kontroluje czas oraz nadzoruje blokadę bezpieczeństwa operatora i maszyny
+* **Przetwarzanie sygnałów analogowych:** Sygnał z czujnika pomiarowego PT100 jest skalowany matematycznie na rzeczywistą wartość w stopniach Celsjusza
+* **Regulacja dwustanowa (utrzymywanie 180 stopni Celcjusza):** Aby uniknąć "migania" wyjścia grzałki, zastosowano histerezę. Dolny próg załączenia grzania ustawiono na 178.0°C, natomiast górny próg wyłączenia na 182.0 stopni Celcjusza
+* **Ewentualna interewencja operatora:**  Bezpieczeństwo pracy jest priorytetem, sygnał z czujnika otwarcia drzwi natychmiastowo wyłącza elementy wykonawcze, co eliminując ryzyko poparzenia obsługi maszynowej
+
 ## 56. Sterownik Centrali Wentylacyjnej z implemetnacją zegara RTC (`Sterownik_centrali_wentylacyjnej.st`)
 Algorytm sterowania mikroklimatem w budynku komercyjnym na podstawie jakości powietrza oraz harmonogramu czasowego
 * **Obsługa zegara systemowego:** Użycie funkcji systemowej RD_LOC_T oraz DTL dla systemów marki Siemens, aby pobierać aktualny czas lokalny z procesora
