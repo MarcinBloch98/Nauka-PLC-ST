@@ -2,6 +2,12 @@
 
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
+## 58. System Sterowania Oświetleniem Awaryjnym i Ewakuacyjnym (`Sterownik_oswietlenia_awaryjnego.st`)
+Program automatycznego przełączania stref zasilania oświetlenia ewakuacyjnego w przypadku wykrycia awarii sieci
+* **Filtracja stanów nieustalonych:** Wykorzystanie timera `TON` (5 sekund) do stabilizacji i potwierdzenia powrotu napięcia sieci głównej przed wyłączeniem zasilania awaryjnego
+* **Logika kombinacyjna:** Przewidzenie pracy automatycznego trybu nocnego (czujnik zmierzchu) z funkcją ręcznego testu instalacji
+* **Rozwój projektu:** Kod przygotowany pod implementację automatycznych testów
+
 ## 57. Inteligentny Sterownik Komory Termicznej z Histerezą i Funkcją Safe-Pause (`Sterownik_pieca_przemyslowego.st`)
 Algorytm sterowania procesem termicznym - wygrzewanie, pieczenie. Program zarządza pętlą grzewczą komory, kontroluje czas oraz nadzoruje blokadę bezpieczeństwa operatora i maszyny
 * **Przetwarzanie sygnałów analogowych:** Sygnał z czujnika pomiarowego PT100 jest skalowany matematycznie na rzeczywistą wartość w stopniach Celsjusza
