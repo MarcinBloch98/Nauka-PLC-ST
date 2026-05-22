@@ -2,6 +2,12 @@
 
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
+## 59. Sterownik Automatycznego Restartu - Watchdog IP (`Watchdog.st.st`)
+Podstawowy algorytm monitorowania stabilności połączenia sieciowego i automatycznego restartu urządzeń peryferyjnych (np. routera, bramy sieciowej).
+
+* **Detekcja awarii:** Monitorowanie sygnału `Ping_OK` i filtracja chwilowych zaników z uzyciem timera TON
+* **Sygnalizacja resetu:** Automatyczne sygnał na przekaźnik odcinający zasilanie po 60 sekundach braku reakcji na zmianę pingu
+
 ## 58. System Sterowania Oświetleniem Awaryjnym i Ewakuacyjnym (`Sterownik_oswietlenia_awaryjnego.st`)
 Program automatycznego przełączania stref zasilania oświetlenia ewakuacyjnego w przypadku wykrycia awarii sieci
 * **Filtracja stanów nieustalonych:** Wykorzystanie timera `TON` (5 sekund) do stabilizacji i potwierdzenia powrotu napięcia sieci głównej przed wyłączeniem zasilania awaryjnego
