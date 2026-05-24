@@ -2,6 +2,11 @@
 
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
+## 60. System przeciwzamrożeniowy  (`Zabezpieczenie_przeciwzamrożeniowe.st`)
+* **Redundancja:** Układ monitoruje temperaturę wody z nagrzewnicy oraz sygnał bezpieczeństwa z termostatu
+* **Histereza:** Zastosowanie blokady aktywacji (12.0 stopni) oraz stabilnego powrotu do pracy po dogrzaniu układu (20.0 stopni) zapobiegające niestabilności układu
+* **Blokada bezpieczeństwa:** Przy zagrożeniu program priorytetowo odcina zasilanie wentylatora i maksymalnie otwiera zawór nagrzewnicy, niezależnie od reszty systemu
+  
 ## 59. Sterownik Automatycznego Restartu - Watchdog IP (`Watchdog.st`)
 Podstawowy algorytm monitorowania stabilności połączenia sieciowego i automatycznego restartu urządzeń peryferyjnych (np. routera, bramy sieciowej).
 * **Detekcja awarii:** Monitorowanie sygnału `Ping_OK` i filtracja chwilowych zaników z uzyciem timera TON
