@@ -2,6 +2,11 @@
 
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
+## 61. Sterownik Monitorowania Poślizgu Przenośnika (`Wykrywanie_poslizgu_tasmy.st`)
+* **Kontrola synchronizmu:** Program porownuje sume dwoch niezaleznych czujnikow idnukcyjnych
+* **Okno pomiarowe:** Badanie różnicy wartości liczników CTU odbywa się co 5 sekund
+* **Blokada bezpieczeństwa:** Wykrywanie asynchronizmu, gdy roznica miedzy licznikami wynosi 3 impulsy lub więcej
+  
 ## 60. System przeciwzamrożeniowy  (`Zabezpieczenie_przeciwzamrożeniowe.st`)
 * **Redundancja:** Układ monitoruje temperaturę wody z nagrzewnicy oraz sygnał bezpieczeństwa z termostatu
 * **Histereza:** Zastosowanie blokady aktywacji (12.0 stopni) oraz stabilnego powrotu do pracy po dogrzaniu układu (20.0 stopni) zapobiegające niestabilności układu
