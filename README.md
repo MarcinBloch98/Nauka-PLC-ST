@@ -2,6 +2,11 @@
 
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
+## 62. Sterownik Sortownika Gabarytów Przenośnika (`Sortowanie_gabarytow_tasmy.st`)
+* **Klasyfikacja czasowa:** Układ korzysta zestałej prędkości transportera i mierzy jego czas całego zasłonięcia czujnika optycznego. Przekroczenie progu 1.5 sekundy klasyfikuje obiekt jako gabaryt
+* **Kontrola wykonawcza:** Wykorzystanie timera TOF daje możlwiość na stabilną pracę, impuls trwający 1 sekundę na wyjściu, pozwala na precyzyjny czas pracy elektrozaworu i zapobiega zacięciom spychacza
+* **Możliwość tworzenia statystyk:** Licznik rejestruje liczbę odrzuconych paczek w cyklu pracy linii (zliczaniez użyciemzbocza narastojącego), a zatrzymanie taśmy automatycznie resetuje wartość licznika
+
 ## 61. Sterownik Monitorowania Poślizgu Przenośnika (`Wykrywanie_poslizgu_tasmy.st`)
 * **Kontrola synchronizmu:** Program porownuje sume dwoch niezaleznych czujnikow idnukcyjnych
 * **Okno pomiarowe:** Badanie różnicy wartości liczników CTU odbywa się co 5 sekund
