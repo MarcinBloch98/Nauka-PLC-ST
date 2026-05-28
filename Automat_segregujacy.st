@@ -1,6 +1,6 @@
 VAR
     Krok : INT := 0;              // krok programu
-    Start_Maszyny : BOOL;         // przycisk NO wlaczajacy maszyne
+    Start_Maszyny : BOOL;         // przycisk NO uruchamiajacy maszyne
     E_Stop : BOOL;                // przycisk bezpieczeństwa NC 
     
     Tasma : BOOL;                 // napęd taśmociągu
