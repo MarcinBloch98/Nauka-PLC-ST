@@ -2,6 +2,11 @@
 
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
+## 63. Sterownik Kontroli Przepełnienia Bufora Rolkowego (`Kontrola_przepelnienia_bufora.st`)
+* **Monitoring zatoru:** Układ na podstawie stan fotokomórki końcowej, uklad bada stan wypelnienia zatoru. Zasłonięcie czujnika przez 4 sekundy uruchamia zeaktywuje system
+* **Natychmiastowa blokada:** Flaga `Zatrzymanie_awaryjne` natychmiast odcina sygnał zezwolenia na pracę dla systemu
+* **Diagnostyka:** Lcznik `CTU` monitoruje prace linii poprzez zliczanie wystepujacych przepełnień w trakcie jednego cyklu pracy
+
 ## 62. Sterownik Sortownika Gabarytów Przenośnika (`Sortowanie_gabarytow_tasmy.st`)
 * **Klasyfikacja czasowa:** Układ korzysta zestałej prędkości transportera i mierzy jego czas całego zasłonięcia czujnika optycznego. Przekroczenie progu 1.5 sekundy klasyfikuje obiekt jako gabaryt
 * **Kontrola wykonawcza:** Wykorzystanie timera TOF daje możlwiość na stabilną pracę, impuls trwający 1 sekundę na wyjściu, pozwala na precyzyjny czas pracy elektrozaworu i zapobiega zacięciom spychacza
