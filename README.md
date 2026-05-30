@@ -2,6 +2,11 @@
 
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
+## 66. Sterownik Sekwencji Czyszczenia Instalacji CIP (`Sterownik_czyszczenia.st`)
+* **Automat stanów:** Z instrukcją `CASE..OF` program przeprowadza sekwencję
+* **Dynamiczne zarządzanie czasem:** Zarządzanie czasowe długością każdej z faz odbywa się poprzez zastosowanie timera TON
+* **Bezpieczeństwo procesu (Interlock):** Odliczanie czasowe każdego z etapów jest uwarunkowane sygnalem zwrotnym z `Potwierdzenie_pompy`. Awaria lub brak ciśnienia w rurociągu wstrzymuje pracę, chroniąc instalacjęniekontrolowanym ruchem.
+
 ## 65. Sterownik Miksera Dwuskładnikowego (`Sterownik_miksera.st`)
 * **Program sekwencyjny:** Zastosowanie instrukcji `CASE..OF` pozwalającej na bezpieczne przechodzenie pomiędzy kolejnymi krokami procesu: napełnianie, miksowanie czasowe oraz opróżnianiem zbiornika
 * **Mieszanie czasowe:** Wykorzystanie timera `TON` do odmierzania czasu 10 sekund pracy mieszadła, oraz aktywowanie go w odpowiedniej fazie
