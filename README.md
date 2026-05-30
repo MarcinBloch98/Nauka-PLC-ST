@@ -2,6 +2,11 @@
 
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
+## 65. Sterownik Miksera Dwuskładnikowego (`Sterownik_miksera.st`)
+* **Program sekwencyjny:** Zastosowanie instrukcji `CASE..OF` pozwalającej na bezpieczne przechodzenie pomiędzy kolejnymi krokami procesu: napełnianie, miksowanie czasowe oraz opróżnianiem zbiornika
+* **Mieszanie czasowe:** Wykorzystanie timera `TON` do odmierzania czasu 10 sekund pracy mieszadła, oraz aktywowanie go w odpowiedniej fazie
+* **Blokady:** Warunkiem rozpoczęcia dozowania oraz opróżniania jest fizyczny stan czujników (`Czujnik_pusty` / `Czujnik_pelny`), co wyklucza ryzyko mieszania pustego zbiornika przez mieszadło lub przelania zbiornika
+
 ## 63. Sterownik Kontroli Przepełnienia Bufora Rolkowego (`Kontrola_przepelnienia_bufora.st`)
 * **Monitoring zatoru:** Układ na podstawie stan fotokomórki końcowej, uklad bada stan wypelnienia zatoru. Zasłonięcie czujnika przez 4 sekundy uruchamia zeaktywuje system
 * **Natychmiastowa blokada:** Flaga `Zatrzymanie_awaryjne` natychmiast odcina sygnał zezwolenia na pracę dla systemu
