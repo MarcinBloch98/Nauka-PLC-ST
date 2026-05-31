@@ -2,6 +2,10 @@
 
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
+## 67. Sterownik Sekwencyjnego Rozruchu Wentylatorów (`Sekwencyjny_rozruch_wentylatorow.st`)
+* **Ograniczenie prądu rozruchu:** Eliminacja ryzyka jednoczesnego włączenia kilku mocnych silników, dzieląc rozruch na etapy z bezpieczną zwłoką czasową
+* **Czasowa sekwencja:** Jeden blok `TON` odmierza 5-sekundowe opóźnienia czasowe w pośrednich krokach, umożliwiając stabilizację parametrów rozpędzanego silnika
+
 ## 66. Sterownik Sekwencji Czyszczenia Instalacji CIP (`Sterownik_czyszczenia.st`)
 * **Automat stanów:** Z instrukcją `CASE..OF` program przeprowadza sekwencję
 * **Dynamiczne zarządzanie czasem:** Zarządzanie czasowe długością każdej z faz odbywa się poprzez zastosowanie timera TON
