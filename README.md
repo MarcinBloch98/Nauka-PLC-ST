@@ -2,6 +2,11 @@
 
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
+## 68. Sterownik Automatycznej Prasy Belującej Odpady (`Sterownik_prasy_belujacej.st`)
+* **Bezpieczny cykl prasowania:** Praca prasy zaprogramowana jest w strukturze `CASE..OF` powiązanej z sygnałem z czujnika ciśnienia oraz pozycji początkowej, wykluczając ryzyko zablokowania hydrauliki
+* **Filtracja zasypu komory:** Timer `TON` odmierza 3 sekundy stałego zasłonięcia fotokomórki przed uruchomieniem ruchu siłownika. Zapobiega to zbędnym startom pompy hydraulicznej przy przelotowym wpadaniu pojedynczych odpadów
+* **Zliczanie wydajności:** Licznik `CTU` rejestruje zboczem narastającym każdy pełny cykl sprasowania materiału, ułatwiając logistykę odbioru gotowych bel z zakładu, prowadząc do tegp statystykę
+
 ## 67. Sterownik Sekwencyjnego Rozruchu Wentylatorów (`Sekwencyjny_rozruch_wentylatorow.st`)
 * **Ograniczenie prądu rozruchu:** Eliminacja ryzyka jednoczesnego włączenia kilku mocnych silników, dzieląc rozruch na etapy z bezpieczną zwłoką czasową
 * **Czasowa sekwencja:** Jeden blok `TON` odmierza 5-sekundowe opóźnienia czasowe w pośrednich krokach, umożliwiając stabilizację parametrów rozpędzanego silnika
