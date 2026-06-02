@@ -2,6 +2,11 @@
 
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
 
+## 69. Sterownik Zwrotnicy Sortującej na Przenośniku (`Sterownik_zwrotnicy_sortujacej.st`)
+* **Precyzyjna kontrola:** Układ wykrywa obiekt z jego fizycznym położeniem. Tiemr TON odlicza czas transportu od fotokomórki do siłownika
+* **Sekwencja pnaumatyki:** Dzięki zmiennej Krok program steruje pełnym cyklem pracy spychacza
+* **Zastosowanie:** Odrzut produktów niespełniających kryteriów w procesie produkcyjnym
+
 ## 68. Sterownik Automatycznej Prasy Belującej Odpady (`Sterownik_prasy_belujacej.st`)
 * **Bezpieczny cykl prasowania:** Praca prasy zaprogramowana jest w strukturze `CASE..OF` powiązanej z sygnałem z czujnika ciśnienia oraz pozycji początkowej, wykluczając ryzyko zablokowania hydrauliki
 * **Filtracja zasypu komory:** Timer `TON` odmierza 3 sekundy stałego zasłonięcia fotokomórki przed uruchomieniem ruchu siłownika. Zapobiega to zbędnym startom pompy hydraulicznej przy przelotowym wpadaniu pojedynczych odpadów
