@@ -1,6 +1,11 @@
 # Portfolio Automatyka – Projekty PLC (Structured Text)
 
-Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz diagnostykę układów sterowania.
+Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz 
+diagnostykę układów sterowania.
+
+## 70. Sterownik Windy Towarowej z Kontrolą Rygla (`Sterownik_windy_towarowej.st`)
+* **Bezpieczeństwo:** Ruch silnika w górę lub w dół jest uwarunkowany stanem sygnału rygla. Próba otwarcia drzwi podczas jazdy natychmiastowo odcina zasilanie silnika
+* **Kontrola dostępu do szybu:** Zezwolenie na aktywację drzwi aktywuje się wyłączeni w postoju windy, co uniemożlwia przypadkowe otarcie drzwi
 
 ## 69. Sterownik Zwrotnicy Sortującej na Przenośniku (`Sterownik_zwrotnicy_sortujacej.st`)
 * **Precyzyjna kontrola:** Układ wykrywa obiekt z jego fizycznym położeniem. Tiemr TON odlicza czas transportu od fotokomórki do siłownika
