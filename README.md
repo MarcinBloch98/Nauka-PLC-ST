@@ -3,6 +3,10 @@
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz 
 diagnostykę układów sterowania.
 
+## 71. Sterownik Dozownika Karuzelowego (`Sterownik_dozownika_karuzelowego.st`)
+* **Indeksowanie pozycji:** Układ steruje ruchem obrotowym stołu z optycznym wykrywaniem obecności opakowania na stanowisku roboczym 
+* **Czasowe odmierzanie dawki:** Zastosowanie bloku TON umożliwia powtarzalność nalewania przez odliczanie czasu otwarcia zaworu, co niweluje błędy niedolewania lub przelewania produktu
+
 ## 70. Sterownik Windy Towarowej z Kontrolą Rygla (`Sterownik_windy_towarowej.st`)
 * **Bezpieczeństwo:** Ruch silnika w górę lub w dół jest uwarunkowany stanem sygnału rygla. Próba otwarcia drzwi podczas jazdy natychmiastowo odcina zasilanie silnika
 * **Kontrola dostępu do szybu:** Zezwolenie na aktywację drzwi aktywuje się wyłączeni w postoju windy, co uniemożlwia przypadkowe otarcie drzwi
