@@ -16,7 +16,7 @@ IF NOT bEStop_NC THEN
 END_IF
 
 // 2. Warunek Resetu
-// Bezpieczeństwo można przywrócić tylko, gdy grzyb jest wyciągnięty (TRUE) 
+// Bezpieczeństwo można przywrócić tylko, gdy grzyb jest wyciągnięty (TRUE)
 // i naciśniemy przycisk Reset
 IF bEStop_NC AND bReset_Button THEN
     bSafetyOK := TRUE;
