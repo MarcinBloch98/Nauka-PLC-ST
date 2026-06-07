@@ -3,6 +3,11 @@
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz 
 diagnostykę układów sterowania.
 
+## 72. Sterownik Przedmuchu Filtrów Odpylających (`Sterownik_przedmuchu_filtrow.st`)
+* **Regeneracja na podstawie obciążenia:** Układ aktywuje oczyszczanie za pomocą zmiennej Krok dopiero po sygnale z presostatu, co optymalizuje zużycie sprężonego powietrza
+* **Precyzyjne taktowanie impulsów:** Wykorzystanie bloku `TON` pozwala na generowanie, uderzeń pneumatycznych zdolnych do skutecznego oczyszczenia tkaniny
+* **Ochrona ciśnienia sieci:** 4-sekundowa pauza między strzałami na poszczególne sekcje pozwala na odbudowanie standardowego poziomu ciśnienia w zbiorniku
+
 ## 71. Sterownik Dozownika Karuzelowego (`Sterownik_dozownika_karuzelowego.st`)
 * **Indeksowanie pozycji:** Układ steruje ruchem obrotowym stołu z optycznym wykrywaniem obecności opakowania na stanowisku roboczym 
 * **Czasowe odmierzanie dawki:** Zastosowanie bloku TON umożliwia powtarzalność nalewania przez odliczanie czasu otwarcia zaworu, co niweluje błędy niedolewania lub przelewania produktu
