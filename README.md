@@ -3,6 +3,11 @@
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz 
 diagnostykę układów sterowania.
 
+## 73. Sterownik Układu Odzysku Ciepła z Kompresora (`Sterownik_odzysku_ciepla.st`)
+* **Efektywność energetyczna:** Program monitoruje temperaturę oleju pracującego kompresora i automatycznie przekierowuje strumień ciepła na cele grzewcze obiektu
+* **Algorytm stabilizacji:** Za pomocą zmiennej `Krok` i bloku `Timer_stabilizacji` wprowadzono 5-sekundowe opóźnienie weryfikacyjne. Eliminuje to zbędne i szkodliwe dla mechaniki pomp uderzenia hydrauliczne przy chwilowych wahaniach temperatur
+* **Pętla zabezpieczeń:** Układ kontroluje temperaturę bufora docelowego (`Temp_zbiornika_co`). Przekroczenie progu bezpieczeństwa (65°C) natychmiastowo wyłącza funkcję odzysku, chroniąc instalację CO przed przegrzaniem i uszkodzeniem
+
 ## 72. Sterownik Przedmuchu Filtrów Odpylających (`Sterownik_przedmuchu_filtrow.st`)
 * **Regeneracja na podstawie obciążenia:** Układ aktywuje oczyszczanie za pomocą zmiennej Krok dopiero po sygnale z presostatu, co optymalizuje zużycie sprężonego powietrza
 * **Precyzyjne taktowanie impulsów:** Wykorzystanie bloku `TON` pozwala na generowanie, uderzeń pneumatycznych zdolnych do skutecznego oczyszczenia tkaniny
