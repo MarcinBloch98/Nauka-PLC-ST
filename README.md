@@ -3,6 +3,11 @@
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz 
 diagnostykę układów sterowania.
 
+## 74. Sterownik Stacji Obrotowej Palet (`Sterownik_stacji_obrotowej.st`)
+* **Bezpieczna zmiana kierunku:** Układ za pomocą zmiennej 'Krok' kontroluje zatrzymanie ładunku, obrót korpusu stacji oraz współpracuje z sygnałami sąsiednich transporterów 'Zgoda_na_wydanie', co zapobiega zderzeniom palet
+* **Stabilizacja ładunku (Anti-topple):** Wykorzystanie bloku `Timer_stabilizacji` wprowadzającego 1.5-sekundową zwłokę po wjechaniu ciężkiej palety na stację. Zabezpiecza to przypełnym wygamowaniu bezwładnościowym towaru przed rozpoczęciem ruchu obrotowego
+* **Ochrona napędów:** Algorytm monitoruje sygnały z fizycznych czujników pozycji `Krancowka_pozycja_0` oraz `_90`, co zabezpiecza przed jednoczesnym załączeniu przeciwnych kierunków silnika i chroni konstrukcję stacji
+
 ## 73. Sterownik Układu Odzysku Ciepła z Kompresora (`Sterownik_odzysku_ciepla.st`)
 * **Efektywność energetyczna:** Program monitoruje temperaturę oleju pracującego kompresora i automatycznie przekierowuje strumień ciepła na cele grzewcze obiektu
 * **Algorytm stabilizacji:** Za pomocą zmiennej `Krok` i bloku `Timer_stabilizacji` wprowadzono 5-sekundowe opóźnienie weryfikacyjne. Eliminuje to zbędne i szkodliwe dla mechaniki pomp uderzenia hydrauliczne przy chwilowych wahaniach temperatur
