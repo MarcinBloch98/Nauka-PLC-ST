@@ -3,6 +3,11 @@
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz 
 diagnostykę układów sterowania.
 
+## 75. Sterownik Rozładunku Silosu z Funkcją Anty-Zawisu (`Sterownik_rozladunku_silosu.st`)
+* **Wykrycie blokady przepływu :** Ukłąd stale weryfikuje sprzężenie zwrotne z czujnika przepływ, co pozwala na detekcje blokady przepływu, i atuomatycznie przeprowadza sekwencję udrożniania silosu
+* **Dwustopniowa sekwencja ratunkowa:** Na początku aktywowany jest pneumatyczny przedmuch. Jeśli warstwy nie zostaną naruszone, algorytm załącza wibrator mechanicznyw celu udrożeniani przepływu
+* **Ochrona zmęczeniowa konstrukcji:** Czas pracy wibratora został programowo ograniczony za pomocą `Timer_wibracji` do 3 sekund w jednym cyklu
+
 ## 74. Sterownik Stacji Obrotowej Palet (`Sterownik_stacji_obrotowej.st`)
 * **Bezpieczna zmiana kierunku:** Układ za pomocą zmiennej 'Krok' kontroluje zatrzymanie ładunku, obrót korpusu stacji oraz współpracuje z sygnałami sąsiednich transporterów 'Zgoda_na_wydanie', co zapobiega zderzeniom palet
 * **Stabilizacja ładunku (Anti-topple):** Wykorzystanie bloku `Timer_stabilizacji` wprowadzającego 1.5-sekundową zwłokę po wjechaniu ciężkiej palety na stację. Zabezpiecza to przypełnym wygamowaniu bezwładnościowym towaru przed rozpoczęciem ruchu obrotowego
