@@ -3,6 +3,11 @@
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz 
 diagnostykę układów sterowania.
 
+## 76. Sterownik Stacji Neutralizacji Ścieków (`Sterownik_neutralizacji_sciekow.st`)
+* **Algorytm anty-wahadłowy:** Program zapobiega klasycznemu błędowi prezbodzcowania chemii (przechodzenia ze skrajnego kwasu w skrajną zasadę) poprzez zastosowanie porcjowania. Układ dozuje reagent przez maksymalnie 3 sekundy, po czym wraca do mieszania i ponownej analizy roztworu
+* **Bezpieczeństwo zrzutu (Environmental Interlock):** Sygnał zezwolenia na otwarcie zaworów spustowych zostaje wystawiony tylko i wyłącznie w kroku czwartym, czyli po pełnym wyrównaniu pH roztworu i potwierdzeniu, że współczynnik pH mieści się w bezpiecznym, normatywnym, oczekiwanym zakresie 6.5 - 8.5
+* **Ciągła homogenizacja:** Silnik mieszadła zostaje automatycznie uruchomiony w jakimkolwiek kroku procesowym, co gwarantuje rozprowadzenie kwasu lub zasady w całej objętości zbiornika
+
 ## 75. Sterownik Rozładunku Silosu z Funkcją Anty-Zawisu (`Sterownik_rozladunku_silosu.st`)
 * **Wykrycie blokady przepływu :** Ukłąd stale weryfikuje sprzężenie zwrotne z czujnika przepływ, co pozwala na detekcje blokady przepływu, i atuomatycznie przeprowadza sekwencję udrożniania silosu
 * **Dwustopniowa sekwencja ratunkowa:** Na początku aktywowany jest pneumatyczny przedmuch. Jeśli warstwy nie zostaną naruszone, algorytm załącza wibrator mechanicznyw celu udrożeniani przepływu
