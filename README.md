@@ -3,6 +3,11 @@
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz 
 diagnostykę układów sterowania.
 
+## 77. Sterownik Stacji Napełniania Dużych Worków (`Sterownik_napelniania_duzych_workow.st`)
+* **Dwustopniowe dozowanie wagowe:** Skrócenie czasu cyklu i przy zachowaniu wysokiej dokładności, układ wykonuje zsyp powierzchowny do momentu osiągnięcia progu 90%, a następnie dokonuje dosypania reszty materiału w trybie precyzyjnym, aby osiagnąć masę docelową
+* **Integracja środowiskowa:** Praca wentylatora odciągowego pył jest zaimplementowana na stałe w procesie sypania, a blok TON gwarantuje 4-sekundową pracę po zsypie, eliminując zapylenie stanowiska podczas zdejmowania worka, w celu ochrony pracowników i środowiska
+* **Sprzętowy system bezpieczeństwa:** Sygnał wejściowy Worek_zalozony działa jako nadrzędna blokada. Jakiekolwiek zerwanie worka lub błąd operatora w trakcie kroków 1 lub 2 natychmiastowo odcina wyjścia zawory dozujące, zapobiegając rozsypaniu materiału
+
 ## 76. Sterownik Stacji Neutralizacji Ścieków (`Sterownik_neutralizacji_sciekow.st`)
 * **Algorytm anty-wahadłowy:** Program zapobiega klasycznemu błędowi prezbodzcowania chemii (przechodzenia ze skrajnego kwasu w skrajną zasadę) poprzez zastosowanie porcjowania. Układ dozuje reagent przez maksymalnie 3 sekundy, po czym wraca do mieszania i ponownej analizy roztworu
 * **Bezpieczeństwo zrzutu (Environmental Interlock):** Sygnał zezwolenia na otwarcie zaworów spustowych zostaje wystawiony tylko i wyłącznie w kroku czwartym, czyli po pełnym wyrównaniu pH roztworu i potwierdzeniu, że współczynnik pH mieści się w bezpiecznym, normatywnym, oczekiwanym zakresie 6.5 - 8.5
