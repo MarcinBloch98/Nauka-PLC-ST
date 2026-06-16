@@ -3,6 +3,10 @@
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz 
 diagnostykę układów sterowania.
 
+## 78. Sterownik Wózka Wahadłowego Pętli Sortującej (`Sterownik_wozka_wahadlowego.st`)
+* **Synchronizacja:** Algorytm kieruje ruchem taśmy rozładowczej zależnego od jednoczesnego badania dokładnej pozycji postoju wózka oraz, eliminując ryzyko zrzucenia paczki na podłogę
+* **Stabilizacja:** Wprowadzono logikę bezpieczeństwa – przed uruchomieniem silnika następuje załączenie fizycznej blokady, który zabezpiecza odrzutowi wózka podczas gwałtownego ruszenia taśmy z ciężkim ładunkiem
+
 ## 77. Sterownik Stacji Napełniania Dużych Worków (`Sterownik_napelniania_duzych_workow.st`)
 * **Dwustopniowe dozowanie wagowe:** Skrócenie czasu cyklu i przy zachowaniu wysokiej dokładności, układ wykonuje zsyp powierzchowny do momentu osiągnięcia progu 90%, a następnie dokonuje dosypania reszty materiału w trybie precyzyjnym, aby osiagnąć masę docelową
 * **Integracja środowiskowa:** Praca wentylatora odciągowego pył jest zaimplementowana na stałe w procesie sypania, a blok TON gwarantuje 4-sekundową pracę po zsypie, eliminując zapylenie stanowiska podczas zdejmowania worka, w celu ochrony pracowników i środowiska
