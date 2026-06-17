@@ -3,6 +3,11 @@
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz 
 diagnostykę układów sterowania.
 
+## 80. Sterownik Napowietrzania i Czyszczenia Osadnika (`Sterownik_napowietrzania_osadnika.st`)
+* **Histereza napowietrzania:** Sterownik przetwarzający sygnał analogowy z sondy, realizując algorytm dwupołożeniowy. Zapobiega to zbędnym rozruchom dmuchawy i ogranicza zużycie energii
+* **Sekwencyjne oczyszczanie:** Układ kontroluje cykl usuwania osadów. Przejście pomiędzy mechanicznym zgarnianiem osadu, a sekcją odpompowania jest w pełni nadzorowane przez układ
+* **Zabezpieczenie:** Ruch mechanizmu zgarniającego osad opiera się na sprzężeniu z wyłącznika krańcowym oraz zabezpieczeniu czasowym timeru TON. Zapewnia to stabilną pracę maszyny nawet w trudnych utrudnionych warunkach środowiskowych przy ograniczonym lub braku widoczności
+
 ## 78. Sterownik Wózka Wahadłowego Pętli Sortującej (`Sterownik_wozka_wahadlowego.st`)
 * **Synchronizacja:** Algorytm kieruje ruchem taśmy rozładowczej zależnego od jednoczesnego badania dokładnej pozycji postoju wózka oraz, eliminując ryzyko zrzucenia paczki na podłogę
 * **Stabilizacja:** Wprowadzono logikę bezpieczeństwa – przed uruchomieniem silnika następuje załączenie fizycznej blokady, który zabezpiecza odrzutowi wózka podczas gwałtownego ruszenia taśmy z ciężkim ładunkiem
