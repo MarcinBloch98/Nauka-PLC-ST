@@ -3,6 +3,11 @@
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz 
 diagnostykę układów sterowania.
 
+## 81. Sterownik Sekwencyjnego Czyszczenia Wymiennika Ciepła (`Sterownik_czyszczenia_wymiennika.st`)
+* **Kontrola sprawności:** Układ w analizuje temperatury na wlocie. Spadek temperatur poniżej granicy 15°C jest automatycznie kwalifikowany jako zanieczyszczenie powierzchni i generuje żądanie uruchomienia cyklu
+* **Sekwencyjny przedmuch:** W celu uniknięcia gwałtownego spadku ciśnienia w zakładowej sieci, program realizuje czyszczenie etapowo, otwierając dedykowane zawory jeden po drugim
+* **Interlock ciśnieniowy:** Bezpieczeństwo i efektywność procesu są nadzorowane przez Zgoda_na_przedmuch. W przypadku zaniku ciśnienia środka czyszczącego, wyjścia są natychmiast blokowane, chroniąc układ przed nieefektywną pracą
+
 ## 80. Sterownik Napowietrzania i Czyszczenia Osadnika (`Sterownik_napowietrzania_osadnika.st`)
 * **Histereza napowietrzania:** Sterownik przetwarzający sygnał analogowy z sondy, realizując algorytm dwupołożeniowy. Zapobiega to zbędnym rozruchom dmuchawy i ogranicza zużycie energii
 * **Sekwencyjne oczyszczanie:** Układ kontroluje cykl usuwania osadów. Przejście pomiędzy mechanicznym zgarnianiem osadu, a sekcją odpompowania jest w pełni nadzorowane przez układ
