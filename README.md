@@ -3,6 +3,11 @@
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz 
 diagnostykę układów sterowania.
 
+## 82. Sterownik Automatycznej Prasy Filtracyjnej Osadu (`Sterownik_prasy_filtracyjnej.st`)
+* **Zabezpieczenie ciśnieniowe prasy:** Program analizuje sygnał analogowy z Cisnienie_szlamu prezez całą sekwencję. Przekroczenie bezpiecznej granicy 12 bar przestaje generować sygnał Zgoda_pompy, co zamyka Zawor_zasilajacy, aby chronić płyty filtracyjne przed rozerwaniem
+* **Nadzorowana sekwencja:** Cykl wyciskania cieczy jest podzielony na fazy – od hydraulicznego zamykania komór (`Silownik_docisku`), przez kontrolowany czasowo zasyp pod ciśnieniem, po fazę końcowego rozluźnienia prasy, pozwalającą na grawitacyjny zrzut sprasowanego materiału
+* **Bezpieczeństwo mechaniczne:** Załączenie zaworu podawajądce medium jest bezwzględnie zablokowane w przypadku braku pełnego potwierdzenia mechanicznego domykającego konstrukcję Prasa_zamknieta, likwidując ryzyko groźnego rozlania się szlamu
+
 ## 81. Sterownik Sekwencyjnego Czyszczenia Wymiennika Ciepła (`Sterownik_czyszczenia_wymiennika.st`)
 * **Kontrola sprawności:** Układ w analizuje temperatury na wlocie. Spadek temperatur poniżej granicy 15°C jest automatycznie kwalifikowany jako zanieczyszczenie powierzchni i generuje żądanie uruchomienia cyklu
 * **Sekwencyjny przedmuch:** W celu uniknięcia gwałtownego spadku ciśnienia w zakładowej sieci, program realizuje czyszczenie etapowo, otwierając dedykowane zawory jeden po drugim
