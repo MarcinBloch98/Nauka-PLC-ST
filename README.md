@@ -3,6 +3,11 @@
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz 
 diagnostykę układów sterowania.
 
+## 83. Sterownik Paletyzacji Kartonów (`Sterownik_paletyzacji_kartonów.st`)
+* **Logika dodawania warstw towaru:** Sterownik monitoruje proces napływających opakowań. Po osiągnięciu maksymalnej liczby sztuk przypisanej do jednej warstwy - 10 szt, algorytm wstrzymuje pracę taśmy i aktywuje sekwencję kolejnej warstwy
+* **Interlock strefy załadunku:** Układ posiada sprzętową blokadę bezpieczeństwa. Praca linii zasilającej jest uzalezżiona od sygnału obecności palety. W przypadku braku palety, proces zostaje wstrzymany, co eliminuje ryzyko zrzucenia towaru na posadzkę
+* **Sygnalizacja i obsługa logistyczna:** Po osiągnięciu limitu pojemnościowego palety - 40 sztuk opakowań, maszyna przechodzi w stan oczekiwania i aktywuje to sygnalizuje. Dalsza praca jest zablokowana do momentu odebrania ładunku i zatwierdzenia stanu przez operatora maszyny
+
 ## 82. Sterownik Automatycznej Prasy Filtracyjnej Osadu (`Sterownik_prasy_filtracyjnej.st`)
 * **Zabezpieczenie ciśnieniowe prasy:** Program analizuje sygnał analogowy z Cisnienie_szlamu prezez całą sekwencję. Przekroczenie bezpiecznej granicy 12 bar przestaje generować sygnał Zgoda_pompy, co zamyka Zawor_zasilajacy, aby chronić płyty filtracyjne przed rozerwaniem
 * **Nadzorowana sekwencja:** Cykl wyciskania cieczy jest podzielony na fazy – od hydraulicznego zamykania komór (`Silownik_docisku`), przez kontrolowany czasowo zasyp pod ciśnieniem, po fazę końcowego rozluźnienia prasy, pozwalającą na grawitacyjny zrzut sprasowanego materiału
