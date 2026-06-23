@@ -3,6 +3,11 @@
 Zbiór algorytmów i rozwiązań przemysłowych napisanych w języku ST (IEC 61131-3). Repozytorium prezentuje dobre praktyki programistyczne, dbałość o bezpieczeństwo oraz 
 diagnostykę układów sterowania.
 
+## 84. Sterownik Granulatora Tworzyw (`Sterownik_granulatora_tworzyw.st`)
+* **System przeciążeniowy mechanizmu noży:** Program stale monitoruje prądu silnika głównego. Zwiększenie obciążenia powyżej 110A (oznaczający zablokowanie noży przez zbyt twarde tworzywo) zatrzymuje i uruchamia automatyczną procedurę powrotu i zatrzymuje pracę ostrzy
+* **Czasowa cofanie:** Cofanie zablokowanego materiału z komory tnącej bazuje na bloku czasowym TON. Po upływie 5 sekund odsuwania surowca, układ próbuje automatycznie normalnie wrócić do pracy
+* **Bezpieczeństwo termiczne:** Program zabezpiecza pracę ukłądu przed wykonywaniem swojej pracy w zbyt wysokiej temperaturze na wale głównnym powyżej 85.0°C`, co informuje o potencjalnie tępych ostrzach lub braku smaru, zabezpieczając ukłąd przed zatarciem
+
 ## 83. Sterownik Paletyzacji Kartonów (`Sterownik_paletyzacji_kartonów.st`)
 * **Logika dodawania warstw towaru:** Sterownik monitoruje proces napływających opakowań. Po osiągnięciu maksymalnej liczby sztuk przypisanej do jednej warstwy - 10 szt, algorytm wstrzymuje pracę taśmy i aktywuje sekwencję kolejnej warstwy
 * **Interlock strefy załadunku:** Układ posiada sprzętową blokadę bezpieczeństwa. Praca linii zasilającej jest uzalezżiona od sygnału obecności palety. W przypadku braku palety, proces zostaje wstrzymany, co eliminuje ryzyko zrzucenia towaru na posadzkę
